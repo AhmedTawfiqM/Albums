@@ -1,4 +1,5 @@
 apply plugin: Plugins.kotlinAndroid
+apply plugin: Plugins.kotlinkapt
 
 android {
     compileSdk 31

@@ -9,6 +9,9 @@ dependencies {
     api Libs.materialDesignLibs.material
     api Libs.androidLibs.constraintLayout
 
+    api Libs.daggerLibs.hilt
+    kapt Libs.daggerLibs.hiltCompiler
+
     //Test Libs
     api TestLibs.junit
     api TestLibs.androidXLibs.junit
@@ -16,4 +19,7 @@ dependencies {
 
     api Libs.coroutinesLibs.coroutinesCore
     api Libs.coroutinesLibs.coroutinesAndroid
+}
+kapt {
+    correctErrorTypes = true
 }

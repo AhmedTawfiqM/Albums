@@ -3,6 +3,11 @@ object Plugins {
     const val androidLibrary = "com.android.library"
 
     const val kotlinAndroid = "kotlin-android"
+    const val kotlinkapt = "kotlin-kapt"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
+
+    object Dagger {
+        const val hilt = "dagger.hilt.android.plugin"
+    }
 }
