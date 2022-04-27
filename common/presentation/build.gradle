@@ -1,3 +1,5 @@
+import deps.Libs
+
 apply from: "$rootDir/$GradleName.common"
 
 android {
@@ -22,4 +24,8 @@ android {
 dependencies {
     api project(AppModule.core)
     api project(AppModule.data)
+
+    api Libs.composeLibs.ui
+    api Libs.composeLibs.material
+    api Libs.composeLibs.uiToolingPreview
 }

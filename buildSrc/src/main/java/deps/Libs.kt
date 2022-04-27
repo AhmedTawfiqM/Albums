@@ -8,6 +8,7 @@ object Libs {
     val gsonLibs = GsonLibs
     val coroutinesLibs = CoroutinesLibs
     val daggerLibs = DaggerLibs
+    val composeLibs = ComposeLibs
 
     object AndroidLibs {
         const val core = "androidx.core:core-ktx:${Versions.appCompat}"
@@ -43,10 +44,17 @@ object Libs {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     }
 
-    object DaggerLibs{
+    object DaggerLibs {
         private const val version = "2.37"
         const val hilt = "com.google.dagger:hilt-android:$version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$version"
+    }
+
+    object ComposeLibs {
+        private const val version = "1.0.1"
+        const val ui = "androidx.compose.ui:ui:$version"
+        const val material = "androidx.compose.material:material:$version"
+        const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
     }
 }
 
