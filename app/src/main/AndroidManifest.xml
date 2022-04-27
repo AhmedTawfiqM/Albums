@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.modularApp">
+    package="com.app.albums">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".shared.App"
+        android:name="com.app.albums.shared.App"
         android:icon="@mipmap/ic_launcher"
         android:label="Albums"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.ModualrPrqctice">
 
         <activity
-            android:name=".screens.MainActivity"
+            android:name="com.app.albums.screens.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.app.modularApp.shared.di
+package com.app.albums.shared.di
 
 import dagger.Module
 import dagger.Provides

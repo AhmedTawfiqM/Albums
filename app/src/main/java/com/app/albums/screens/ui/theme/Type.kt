@@ -1,4 +1,4 @@
-package com.app.modularApp.screens.ui.theme
+package com.app.albums.screens.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.app.modularApp.shared
+package com.app.albums.shared
 
 import android.annotation.SuppressLint
 import android.app.Application

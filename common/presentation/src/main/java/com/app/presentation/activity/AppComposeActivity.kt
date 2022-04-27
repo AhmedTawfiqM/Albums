@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import com.app.modularApp.screens.ui.theme.AlbumsTheme
+import com.app.albums.screens.ui.theme.AlbumsTheme
 
 abstract class AppComposeActivity : ComponentActivity() {
 

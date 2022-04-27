@@ -1,4 +1,4 @@
-package com.app.modularApp.screens.ui.theme
+package com.app.albums.screens.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

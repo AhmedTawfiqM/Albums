@@ -1,4 +1,4 @@
-package com.app.modularApp
+package com.app.albums
 
 import org.junit.Test
 
