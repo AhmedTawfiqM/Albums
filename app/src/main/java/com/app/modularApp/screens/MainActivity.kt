@@ -1,6 +1,7 @@
 package com.app.modularApp.screens
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
@@ -11,12 +12,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.app.modularApp.screens.ui.theme.AlbumsTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Named
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     @Inject
-    lateinit var someRandomString: String
+    lateinit var randomString: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,8 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        Log.d("someRandomString", "onCreate: $randomString")
     }
 }
 
