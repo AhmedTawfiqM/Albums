@@ -44,7 +44,7 @@ object Libs {
     }
 
     object Versions {
-
+        //TODO: add to every specified object
         //android core
         const val core = "1.6.0"
         const val appCompat = "1.3.1"
