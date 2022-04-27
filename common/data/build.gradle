@@ -1,0 +1,16 @@
+import deps.Libs
+
+apply from: "$rootDir/$GradleName.common"
+
+dependencies {
+    api project(AppModule.core)
+
+    api Libs.networkLibs.retrofitRuntime
+    api Libs.networkLibs.retrofitConverter
+    implementation Libs.networkLibs.retrofitAdapter
+
+    implementation Libs.networkLibs.okHttp
+    implementation Libs.networkLibs.loggingInterceptor
+
+    implementation Libs.gsonLibs.gsonGoogle
+}

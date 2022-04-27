@@ -1,0 +1,19 @@
+import deps.Libs
+import deps.TestLibs
+
+apply from: "$rootDir/$GradleName.common"
+
+dependencies {
+    api Libs.androidLibs.core
+    api Libs.androidLibs.appCompat
+    api Libs.materialDesignLibs.material
+    api Libs.androidLibs.constraintLayout
+
+    //Test Libs
+    api TestLibs.junit
+    api TestLibs.androidXLibs.junit
+    api TestLibs.androidXLibs.espresso
+
+    api Libs.coroutinesLibs.coroutinesCore
+    api Libs.coroutinesLibs.coroutinesAndroid
+}
