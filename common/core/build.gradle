@@ -2,6 +2,7 @@ import deps.Libs
 import deps.TestLibs
 
 apply from: "$rootDir/$GradleName.common"
+apply plugin: Plugins.hilt
 
 dependencies {
     api Libs.androidLibs.core
@@ -19,7 +20,4 @@ dependencies {
 
     api Libs.coroutinesLibs.coroutinesCore
     api Libs.coroutinesLibs.coroutinesAndroid
-}
-kapt {
-    correctErrorTypes = true
 }
