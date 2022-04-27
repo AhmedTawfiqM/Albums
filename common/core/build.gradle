@@ -12,6 +12,10 @@ android {
             debuggable false
         }
 
+        debug {
+            debuggable true
+        }
+
         staging {
             debuggable true
         }

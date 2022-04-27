@@ -17,6 +17,9 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Provides
+    fun provideBaseUrl() = BuildConfig.API_BASE_URL
+
+    @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         if (!BuildConfig.DEBUG) {
@@ -33,9 +36,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient, baseUrl: String): Retrofit {
         return RetrofitHelper.buildRetrofit(
-            baseUrl = BuildConfig.LIBRARY_PACKAGE_NAME, //TODO: add Base Url
+            baseUrl = baseUrl,
             okHttpClient,
         )
     }

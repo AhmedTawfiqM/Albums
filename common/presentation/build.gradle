@@ -7,7 +7,9 @@ android {
             minifyEnabled false
             debuggable false
         }
-
+        debug {
+            debuggable true
+        }
         staging {
             debuggable true
         }

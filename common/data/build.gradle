@@ -5,22 +5,15 @@ apply from: "$rootDir/$GradleName.common"
 android {
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
             buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.production}\""
         }
-
+        debug {
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.develop}\""
+        }
         staging {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
             buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.staging}\""
         }
         develop {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
             buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.develop}\""
         }
     }

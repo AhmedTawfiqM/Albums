@@ -17,9 +17,6 @@ import javax.inject.Named
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var randomString: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -31,7 +28,6 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        Log.d("someRandomString", "onCreate: $randomString")
     }
 }
 
