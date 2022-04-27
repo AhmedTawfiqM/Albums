@@ -4,8 +4,9 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import androidx.annotation.StringRes
-import com.app.modularApp.shared.di.KodeinInjector
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
 
     override fun onCreate() {
@@ -15,7 +16,6 @@ class App : Application() {
     }
 
     private fun setup() {
-        KodeinInjector.inject(this)
     }
 
     companion object {

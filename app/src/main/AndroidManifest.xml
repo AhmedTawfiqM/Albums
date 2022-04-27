@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.modularApp">
+    package="com.app.modularApp" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,17 +11,12 @@
         android:label="Tifa"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ModualrPrqctice">
-
+        android:theme="@style/Theme.ModualrPrqctice" >
         <activity
             android:name=".screens.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.ModualrPrqctice.NoActionBar" />
     </application>
 
 </manifest>
