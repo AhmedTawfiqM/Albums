@@ -19,14 +19,21 @@ android {
         develop {
         }
     }
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Libs.compose.version
+    }
 }
 
 dependencies {
     api project(AppModule.core)
     api project(AppModule.data)
 
-    api Libs.composeLibs.activity
-    api Libs.composeLibs.ui
-    api Libs.composeLibs.material
-    api Libs.composeLibs.uiToolingPreview
+    api Libs.compose.activity
+    api Libs.compose.ui
+    api Libs.compose.material
+    api Libs.compose.uiToolingPreview
 }

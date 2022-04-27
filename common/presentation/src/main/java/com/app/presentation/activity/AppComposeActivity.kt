@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import com.app.albums.screens.ui.theme.AlbumsTheme
 
+//TODO: implement
 abstract class AppComposeActivity : ComponentActivity() {
 
     @Composable
