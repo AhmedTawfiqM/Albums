@@ -12,11 +12,14 @@ import androidx.navigation.compose.composable
 import com.app.albums.screen.details.DetailsScreen
 import com.app.albums.screen.home.HomeScreen
 import com.app.albums.screen.home.HomeVM
+import com.app.presentation.viewmodel.AppViewModel
 
 class AppNavHost(
     private val activity: ComponentActivity,
     private val navController: NavHostController
 ) {
+    private val homeVM: HomeVM by activity.viewModels()
+
     //TODO: make architecture
     @Composable
     fun Setup() {

@@ -20,7 +20,7 @@ class HomeScreen(
 
     @Composable
     override fun Content() {
-        Text(text = "Hello Home Screen")
+        Text(text = "Hello Home Screen: ${vm.testState.value}")
     }
 
 }
