@@ -1,6 +1,6 @@
 package com.app.data.api.albums
 
-import com.app.core.albums.Album
+import com.app.core.albums.model.Album
 import retrofit2.Response
 import retrofit2.http.GET
 

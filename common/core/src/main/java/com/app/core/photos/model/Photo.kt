@@ -1,4 +1,4 @@
-package com.app.core.albums
+package com.app.core.photos.model
 
 import com.google.gson.annotations.SerializedName
 
