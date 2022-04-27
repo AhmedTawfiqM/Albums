@@ -1,5 +1,6 @@
 apply plugin: Plugins.kotlinAndroid
 apply plugin: Plugins.kotlinkapt
+//apply plugin: Plugins.hilt
 
 android {
     compileSdk 31
