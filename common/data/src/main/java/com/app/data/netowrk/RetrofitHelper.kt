@@ -11,6 +11,15 @@ object RetrofitHelper {
 
     fun <T> createService(baseUrl: String, client: OkHttpClient, service: Class<T>): T {
 
+        return buildRetrofit(
+            baseUrl = baseUrl,
+            client = client
+        ).create(service)
+
+    }
+
+    fun buildRetrofit(baseUrl: String, client: OkHttpClient): Retrofit {
+
         val gson = GsonBuilder()
             .setPrettyPrinting()
             .create()
@@ -21,7 +30,5 @@ object RetrofitHelper {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .build()
-            .create(service)
-
     }
 }

@@ -1,5 +1,22 @@
 apply from: "$rootDir/$GradleName.common"
 
+android {
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            debuggable false
+        }
+
+        staging {
+            debuggable true
+        }
+
+        develop {
+        }
+    }
+}
+
 dependencies {
     api project(AppModule.core)
     api project(AppModule.data)

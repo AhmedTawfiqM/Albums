@@ -1,6 +1,6 @@
 apply plugin: Plugins.androidApplication
 apply from: "$rootDir/$GradleName.commonAndroidLib"
-apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android' //TODO: remove
 
 android {
     compileSdk 31
@@ -22,21 +22,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            buildConfigField 'String', 'apiKey', "\"${Config.baseUrl.production}\""
         }
 
         staging {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            buildConfigField 'String', 'apiKey', "\"${Config.baseUrl.staging}\""
         }
         develop {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            buildConfigField 'String', 'apiKey', "\"${Config.baseUrl.develop}\""
         }
     }
     compileOptions {

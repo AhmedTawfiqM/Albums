@@ -2,15 +2,39 @@ import deps.Libs
 
 apply from: "$rootDir/$GradleName.common"
 
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.production}\""
+        }
+
+        staging {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.staging}\""
+        }
+        develop {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.develop}\""
+        }
+    }
+}
+
 dependencies {
     api project(AppModule.core)
 
     api Libs.networkLibs.retrofitRuntime
     api Libs.networkLibs.retrofitConverter
-    implementation Libs.networkLibs.retrofitAdapter
+    api Libs.networkLibs.retrofitAdapter
 
-    implementation Libs.networkLibs.okHttp
-    implementation Libs.networkLibs.loggingInterceptor
+    api Libs.networkLibs.okHttp
+    api Libs.networkLibs.loggingInterceptor
 
     implementation Libs.gsonLibs.gsonGoogle
 }

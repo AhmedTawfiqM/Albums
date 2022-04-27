@@ -4,6 +4,23 @@ import deps.TestLibs
 apply from: "$rootDir/$GradleName.common"
 apply plugin: Plugins.hilt
 
+android {
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            debuggable false
+        }
+
+        staging {
+            debuggable true
+        }
+
+        develop {
+        }
+    }
+}
+
 dependencies {
     api Libs.androidLibs.core
     api Libs.androidLibs.appCompat
