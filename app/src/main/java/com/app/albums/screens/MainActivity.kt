@@ -13,18 +13,11 @@ import com.app.presentation.activity.AppComposeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppComposeActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            AlbumsTheme {
-                Surface(color = MaterialTheme.colors.background) {
-                    DefaultPreview()
-                }
-            }
-        }
-
+    @Composable
+    override fun Content() {
+        DefaultPreview()
     }
 
     @Composable
