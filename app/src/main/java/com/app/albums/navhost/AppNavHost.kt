@@ -35,6 +35,7 @@ class AppNavHost(
         }
     }
 
+    //TODO: make reusable screen builder from screen sealed class
     @SuppressLint("ComposableDestinationInComposeScope")
     @Composable
     private fun NavGraphBuilder.ScreenRoute(

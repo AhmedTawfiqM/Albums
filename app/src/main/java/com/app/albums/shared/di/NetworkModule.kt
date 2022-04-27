@@ -1,7 +1,7 @@
 package com.app.albums.shared.di
 
 import com.app.data.BuildConfig
-import com.app.data.domain.AlbumsApi
+import com.app.data.api.albums.AlbumsApi
 import com.app.data.netowrk.RetrofitHelper
 import dagger.Module
 import dagger.Provides

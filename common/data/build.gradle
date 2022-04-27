@@ -22,12 +22,5 @@ android {
 dependencies {
     api project(AppModule.core)
 
-    api Libs.networkLibs.retrofitRuntime
-    api Libs.networkLibs.retrofitConverter
-    api Libs.networkLibs.retrofitAdapter
 
-    api Libs.networkLibs.okHttp
-    api Libs.networkLibs.loggingInterceptor
-
-    implementation Libs.gsonLibs.gsonGoogle
 }

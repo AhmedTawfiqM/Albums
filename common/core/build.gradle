@@ -34,6 +34,15 @@ dependencies {
     api Libs.daggerLibs.hilt
     kapt Libs.daggerLibs.hiltCompiler
 
+    api Libs.networkLibs.retrofitRuntime
+    api Libs.networkLibs.retrofitConverter
+    api Libs.networkLibs.retrofitAdapter
+
+    api Libs.networkLibs.okHttp
+    api Libs.networkLibs.loggingInterceptor
+
+    api Libs.gsonLibs.gsonGoogle
+
     //Test Libs
     api TestLibs.junit
     api TestLibs.androidXLibs.junit
