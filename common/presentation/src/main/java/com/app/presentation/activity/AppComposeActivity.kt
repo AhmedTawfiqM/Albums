@@ -6,9 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import com.app.albums.screens.ui.theme.AlbumsTheme
+import com.app.albums.screens.ui.theme.AppTheme
 
-//TODO: implement
 abstract class AppComposeActivity : ComponentActivity() {
 
     @Composable
@@ -17,7 +16,7 @@ abstract class AppComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AlbumsTheme {
+            AppTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     Content()
                 }

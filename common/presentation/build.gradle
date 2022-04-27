@@ -35,5 +35,6 @@ dependencies {
     api Libs.compose.activity
     api Libs.compose.ui
     api Libs.compose.material
+    api Libs.compose.navigation
     api Libs.compose.uiToolingPreview
 }
