@@ -1,19 +1,22 @@
 package com.app.albums.navhost
 
 import android.annotation.SuppressLint
+import androidx.activity.ComponentActivity
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.app.albums.screens.DetailsScreen
-import com.app.albums.screens.HomeScreen
+import com.app.albums.screen.details.DetailsScreen
+import com.app.albums.screen.home.HomeScreen
+import com.app.albums.screen.home.HomeVM
 
 class AppNavHost(
+    private val activity: ComponentActivity,
     private val navController: NavHostController
 ) {
-
     //TODO: make architecture
     @Composable
     fun Setup() {
@@ -22,10 +25,10 @@ class AppNavHost(
             startDestination = Screen.Home.route
         ) {
             composable(Screen.Home.route) {
-                HomeScreen().Content()
+                HomeScreen(activity, navController).Content()
             }
             composable(Screen.Details.route) {
-                DetailsScreen().Content()
+                DetailsScreen(activity, navController).Content()
             }
         }
     }

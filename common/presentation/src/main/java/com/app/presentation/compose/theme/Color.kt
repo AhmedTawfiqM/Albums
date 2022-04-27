@@ -1,4 +1,4 @@
-package com.app.albums.screens.ui.theme
+package com.app.albums.screen.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
