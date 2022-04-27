@@ -34,31 +34,37 @@ object Libs {
         const val gsonGoogle = "com.google.code.gson:gson:${Versions.gsonGoogle}"
     }
 
-    object CoroutinesLibs{
+    object CoroutinesLibs {
         //coroutines
         const val coroutinesCore =
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
         const val coroutinesAndroid =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     }
+
+    object Dagger{
+        private const val version = "2.38.1"
+        const val hilt = "com.google.dagger:hilt-android:$version"
+        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$version"
     }
+}
 
-    object Versions {
-        //TODO: add to every specified object
-        //android core
-        const val core = "1.6.0"
-        const val appCompat = "1.3.1"
-        const val material = "1.4.0"
-        const val constraintLayout = "2.1.0"
+object Versions {
+    //TODO: add to every specified object
+    //android core
+    const val core = "1.6.0"
+    const val appCompat = "1.3.1"
+    const val material = "1.4.0"
+    const val constraintLayout = "2.1.0"
 
-        //network
-        const val retrofit = "2.9.0"
-        const val loggingInterceptor = "4.9.1"
-        const val okHttp = "4.9.1"
-        const val gsonGoogle = "2.8.7"
+    //network
+    const val retrofit = "2.9.0"
+    const val loggingInterceptor = "4.9.1"
+    const val okHttp = "4.9.1"
+    const val gsonGoogle = "2.8.7"
 
-        //Kotlin Coroutines
-        const val coroutines = "1.5.0"
+    //Kotlin Coroutines
+    const val coroutines = "1.5.0"
 
 }
 
