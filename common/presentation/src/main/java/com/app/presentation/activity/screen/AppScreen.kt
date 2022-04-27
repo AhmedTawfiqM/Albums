@@ -5,8 +5,8 @@ import com.app.presentation.viewmodel.AppViewModel
 
 interface AppScreen<vm : AppViewModel> : ScreenHost {
 
-     val vm: AppViewModel
+    val vm: AppViewModel
 
     @Composable
-     fun Content()
+    fun Content()
 }

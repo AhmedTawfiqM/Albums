@@ -10,7 +10,7 @@ import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class HomeScreen(
     override val activity: ComponentActivity,
     override val navController: NavHostController,

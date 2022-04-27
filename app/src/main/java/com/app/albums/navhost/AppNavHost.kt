@@ -18,7 +18,6 @@ class AppNavHost(
     private val activity: ComponentActivity,
     private val navController: NavHostController
 ) {
-    private val homeVM: HomeVM by activity.viewModels()
 
     //TODO: make architecture
     @Composable
