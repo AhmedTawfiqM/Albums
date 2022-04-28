@@ -29,6 +29,4 @@ android {
         jvmTarget = '1.8'
     }
 }
-//TODO: remove
-dependencies {
-}
+

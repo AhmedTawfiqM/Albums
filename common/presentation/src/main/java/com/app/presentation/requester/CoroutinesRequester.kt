@@ -1,57 +1,54 @@
 package com.app.presentation.requester
 
-import com.app.presentation.requester.flow.FlowRequester
-import com.app.presentation.requester.flow.Resource
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.app.core.utils.NetworkResult
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 import retrofit2.Response
-import kotlin.coroutines.CoroutineContext
 
 class CoroutinesRequester(
-    private val presenter: Presenter,
+    private val presenter: Presenter
 ) {
 
-    suspend fun <T> request(
-        requestType: RequestType,
-        requestOptions: RequestOptions,
-        context: CoroutineContext,
-        call: suspend () -> T
-    ): T? {
-
-        return when (requestType) {
-            RequestType.Deferred -> requestWithDeferred(context, call)
-            RequestType.Flow -> requestWithDeferred(context, call)
-        }
-    }
-
-    private suspend fun <T> requestWithDeferred(
-        context: CoroutineContext,
-        call: suspend () -> T
-    ): T? {
-
+    //TODO: add options isloading , inlineError
+    fun <T : Any> request(
+        coroutineScope: CoroutineScope,
+        execute: suspend () -> Response<T>,
+        completion: (T) -> Unit,
+    ) {
         presenter.showLoading()
-        val job = coroutineScope {
-            async(context) {
-                call
+
+        coroutineScope.launch {
+            when (val response = callApi(execute = execute)) {
+                is NetworkResult.Error -> {
+                    presenter.showError(response.message)
+                }
+                is NetworkResult.Exception -> {
+                    presenter.showError(response.e)
+                }
+                is NetworkResult.Success -> completion(response.data)
             }
+
+            presenter.hideLoading()
         }
-        val result = job.await()
-        job.cancel()
-
-        presenter.hideLoading()
-        return result()
     }
 
-    @InternalCoroutinesApi
-    suspend fun <T>requestWithFlow(
-        call: suspend () -> T
-    ): MutableStateFlow<Resource<T>> {
-
-        val flowRequester = FlowRequester<T>(presenter)
-        flowRequester.request(call = call)
-        return flowRequester.result
+    private suspend fun <T : Any> callApi(
+        execute: suspend () -> Response<T>
+    ): NetworkResult<T> {
+        return try {
+            val response = execute()
+            val body = response.body()
+            if (response.isSuccessful && body != null) {
+                NetworkResult.Success(body)
+            } else {
+                NetworkResult.Error(code = response.code(), message = response.message())
+            }
+        } catch (e: HttpException) {
+            NetworkResult.Error(code = e.code(), message = e.message())
+        } catch (e: Throwable) {
+            NetworkResult.Exception(e)
+        }
     }
+
 }

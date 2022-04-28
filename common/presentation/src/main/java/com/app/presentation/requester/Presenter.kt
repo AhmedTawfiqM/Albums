@@ -4,5 +4,5 @@ interface Presenter {
     fun showLoading()
     fun hideLoading()
     fun showError(ex: Throwable)
-    fun showError(msg: String)
+    fun showError(msg: String?)
 }

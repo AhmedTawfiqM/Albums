@@ -1,57 +1,48 @@
 package com.app.presentation.viewmodel
 
-import android.util.Log
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.core.utils.NetworkResult
-import com.app.presentation.loader.LoaderDialog
-import com.app.presentation.loader.ProgressDialog
-import kotlinx.coroutines.launch
-import retrofit2.HttpException
+import com.app.presentation.app.CoreApp
+import com.app.presentation.requester.CoroutinesRequester
+import com.app.presentation.requester.Presenter
+import com.app.presentation.showToast
 import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
 
     var loading = MutableLiveData(false)
 
+    private val coroutinesRequester by lazy {
+        CoroutinesRequester(object : Presenter {
+            override fun showLoading() {
+                loading.value = true
+            }
+
+            override fun hideLoading() {
+                loading.value = false
+            }
+
+            override fun showError(ex: Throwable) {
+                showToast(CoreApp.context, ex.message ?: return)
+            }
+
+            override fun showError(msg: String?) {
+                showToast(CoreApp.context, msg ?: return)
+            }
+        })
+    }
+
     fun <T : Any> request(
         execute: suspend () -> Response<T>,
         completion: (T) -> Unit,
     ) {
-        loading.value = true
-
-        viewModelScope.launch {
-            when (val response = callApi(execute = execute)) {
-                is NetworkResult.Error,
-                is NetworkResult.Exception -> {
-                    //TODO: show error
-                    Log.d("NetworkResult", "request: $response")
-                }
-                is NetworkResult.Success -> completion(response.data)
-            }
-
-            loading.value = false
+        coroutinesRequester.request(
+            coroutineScope = viewModelScope,
+            execute = { execute() }
+        ) {
+            completion(it)
         }
     }
 
-    //TODO: seperate to CoroutineRequester Class
-    private suspend fun <T : Any> callApi(
-        execute: suspend () -> Response<T>
-    ): NetworkResult<T> {
-        return try {
-            val response = execute()
-            val body = response.body()
-            if (response.isSuccessful && body != null) {
-                NetworkResult.Success(body)
-            } else {
-                NetworkResult.Error(code = response.code(), message = response.message())
-            }
-        } catch (e: HttpException) {
-            NetworkResult.Error(code = e.code(), message = e.message())
-        } catch (e: Throwable) {
-            NetworkResult.Exception(e)
-        }
-    }
 }
