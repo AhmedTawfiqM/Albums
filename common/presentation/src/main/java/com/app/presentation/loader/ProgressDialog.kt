@@ -63,11 +63,11 @@ class ProgressDialog(
         return dialog
     }
 
-    fun show(){
+    fun show() {
         dialog.show()
     }
 
-    fun dismiss(){
+    fun dismiss() {
         dialog.dismiss()
     }
 }

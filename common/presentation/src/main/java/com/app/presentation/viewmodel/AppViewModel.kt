@@ -46,14 +46,11 @@ open class AppViewModel : ViewModel() {
             if (response.isSuccessful && body != null) {
                 NetworkResult.Success(body)
             } else {
-                Log.d("NetworkResult", "request: ${response.message()}")
                 NetworkResult.Error(code = response.code(), message = response.message())
             }
         } catch (e: HttpException) {
-            Log.d("NetworkResult", "request: ${e.message()}")
             NetworkResult.Error(code = e.code(), message = e.message())
         } catch (e: Throwable) {
-            Log.d("NetworkResult", "request: ${e.message}")
             NetworkResult.Exception(e)
         }
     }

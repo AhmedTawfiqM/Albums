@@ -42,7 +42,7 @@ class AlbumDetailsScreen(
     @ExperimentalFoundationApi
     @Composable
     private fun GalleryView() {
-        PhotosGridView(vm.photos).Content {
+        PhotosGridView(vm.filteredPhotos).Content {
             showToast(context(), it.title ?: "")
         }
     }
@@ -57,10 +57,10 @@ class AlbumDetailsScreen(
     @Composable
     private fun SearchTextField() {
         FormTextField(
-            state = vm.searchInput,
+            state = vm.searchTV,
             color = Color.Gray,
             label = {
-                Text(text = "Search an Image")
+                Text(text = "Search an Image") //TODO: localize
             },
             leadingIcon = {
                 Image(
@@ -70,7 +70,7 @@ class AlbumDetailsScreen(
                 )
             }
         ) {
-            showToast(context(), "Changed")
+            vm.onSearchQuery(it)
         }
     }
 

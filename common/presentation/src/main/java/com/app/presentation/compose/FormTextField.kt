@@ -49,7 +49,7 @@ fun FormTextField(
             },
             modifier = modifier
                 .fillMaxWidth()
-                .height(50.dp),
+                .height(70.dp),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = textStyle,

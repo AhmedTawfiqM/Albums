@@ -7,7 +7,6 @@ import com.app.albums.navhost.NavHostArgument
 import com.app.albums.shared.di.TmpPhotosRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.photos.model.Photo
-import com.app.core.domain.photos.model.PhotoDto
 import com.app.core.domain.photos.model.PhotoDtoMapper
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +19,9 @@ class AlbumDetailsVM @Inject constructor(
 
     var album: Album = NavHostArgument.getValue()
     var photos = SnapshotStateList<Photo>()
-    var searchInput = mutableStateOf("")
+    var searchTV = mutableStateOf("")
+
+    var filteredPhotos = SnapshotStateList<Photo>()
 
     //TODO: Inject Mapper
     fun fetchPhotos(albumId: Int) {
@@ -33,6 +34,25 @@ class AlbumDetailsVM @Inject constructor(
             }
             photos.clear()
             photos.addAll(PhotoDtoMapper().mapList(it))
+            filteredPhotos.addAll(photos)
         }
     }
+
+    fun onSearchQuery(query: String) {
+        if (query.isEmpty()) {
+            filteredPhotos.clear()
+            filteredPhotos.addAll(photos)
+            return
+        }
+
+        val filterPhotos = photos.filter {
+            it.title.contains(query)
+        }
+
+        if (filterPhotos.isNotEmpty()) {
+            filteredPhotos.clear()
+            filteredPhotos.addAll(filterPhotos)
+        }
+    }
+
 }
