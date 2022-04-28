@@ -1,4 +1,4 @@
-package com.app.core.domain.albums
+package com.app.core.domain.albums.repository
 
 import com.app.core.domain.albums.model.AlbumDto
 import retrofit2.Response
