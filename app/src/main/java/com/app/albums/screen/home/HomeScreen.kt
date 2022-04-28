@@ -12,6 +12,7 @@ class HomeScreen(
     override val host: ScreenHost
 ) : AppScreen<HomeVM> {
 
+    //TODO: move Creation to AppScreen
     override val vm: HomeVM by activity().viewModels()
 
     @Composable

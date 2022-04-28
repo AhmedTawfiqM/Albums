@@ -33,25 +33,22 @@ class AppNavHost(
             navController = navController,
             startDestination = Screen.Home.route
         ) {
-            composable(Screen.Home.route) {
+            screenBuilder(Screen.Home) {
                 //val vm = hiltViewModel<HomeVM>()
                 HomeScreen(host).Content()
             }
-            composable(Screen.Details.route) {
+            screenBuilder(Screen.Details) {
                 DetailsScreen(this@AppNavHost).Content()
             }
         }
     }
 
-    //TODO: make reusable screen builder from screen sealed class
-    @SuppressLint("ComposableDestinationInComposeScope")
-    @Composable
-    private fun NavGraphBuilder.ScreenRoute(
+    private fun NavGraphBuilder.screenBuilder(
         screen: Screen,
         content: @Composable (NavBackStackEntry) -> Unit
     ) {
         this.composable(screen.route) {
-            content
+            content(it)
         }
     }
 }

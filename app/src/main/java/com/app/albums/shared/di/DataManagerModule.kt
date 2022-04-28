@@ -14,11 +14,11 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 object DataManagerModule {
 
     @Provides
-    @ViewModelScoped
+    @Singleton
     fun provideDataManager(
         albumsRepo: AlbumsRepositoryImpl,
         photosRepo: PhotosRepositoryImpl,
