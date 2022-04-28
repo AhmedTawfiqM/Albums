@@ -17,8 +17,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataManagerModule {
 
-    @Provides
     @Singleton
+    @Provides
     fun provideDataManager(
         albumsRepo: AlbumsRepositoryImpl,
         photosRepo: PhotosRepositoryImpl,

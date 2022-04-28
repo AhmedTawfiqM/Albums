@@ -19,8 +19,4 @@ object AppModule {
         return app as App
     }
 
-    //TODO: to be removed
-    @Provides
-    @Singleton
-    fun provideTestString(): String = "test String"
 }
