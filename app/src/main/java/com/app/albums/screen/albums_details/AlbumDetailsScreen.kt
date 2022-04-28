@@ -11,9 +11,9 @@ import com.app.presentation.activity.screen.ScreenHost
 
 class AlbumDetailsScreen(
     override val host: ScreenHost,
-) : AppScreen<AlbumsDetailsVM> {
+) : AppScreen<AlbumDetailsVM> {
 
-    override val vm: AlbumsDetailsVM by host.activity.viewModels()
+    override val vm: AlbumDetailsVM by host.activity.viewModels()
 
     @Composable
     override fun Content() {

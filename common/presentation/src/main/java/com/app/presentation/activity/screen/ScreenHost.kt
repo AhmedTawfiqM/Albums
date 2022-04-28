@@ -1,13 +1,10 @@
 package com.app.presentation.activity.screen
 
-import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavHostController
-import com.app.core.domain.albums.model.Album
 
 interface ScreenHost {
-
     val activity: ComponentActivity
     val navController: NavHostController
 
@@ -16,6 +13,10 @@ interface ScreenHost {
     }
 
     fun navigate(route: ScreenRoute) = navigate(route.route)
+
+    fun popBackStack() {
+        navController.popBackStack()
+    }
 
     fun putArguments(block: (SavedStateHandle?) -> Unit) {
         navController.currentBackStackEntry?.savedStateHandle.apply {
@@ -26,9 +27,5 @@ interface ScreenHost {
     fun <T> getArgument(key: String): T? {
         return navController.previousBackStackEntry
             ?.arguments?.getParcelable(key)
-    }
-
-    fun popBackStack() {
-        navController.popBackStack()
     }
 }

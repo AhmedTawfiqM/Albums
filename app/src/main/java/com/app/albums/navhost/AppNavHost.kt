@@ -7,7 +7,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.app.albums.screen.albums_details.AlbumDetailsScreen
 import com.app.albums.screen.albums.AlbumsScreen
-import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,13 +21,13 @@ class AppNavHost(
     fun Setup() {
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route
+            startDestination = Screen.Albums.route
         ) {
-            screenBuilder(Screen.Home) {
+            screenBuilder(Screen.Albums) {
                 //val vm = hiltViewModel<HomeVM>()
                 AlbumsScreen(host).Content()
             }
-            screenBuilder(Screen.Details) {
+            screenBuilder(Screen.AlbumDetails) {
                 AlbumDetailsScreen(host).Content()
             }
         }

@@ -21,5 +21,4 @@ interface AppScreen<VM : AppViewModel> {
     fun navigate(route: String) {
         host.navigate(route)
     }
-
 }

@@ -7,6 +7,7 @@ class UserDtoMapper : Mapper<UserDto,User> {
     override fun map(model: UserDto): User {
         return User(
             id = model.id,
+            name = model.name,
             username = model.username,
             email = model.email,
             website = model.website,

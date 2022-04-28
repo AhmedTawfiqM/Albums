@@ -33,7 +33,7 @@ class AlbumsVM @Inject constructor(
         }
     }
 
-    private fun fetchUsers(onSuccess: () -> Unit = {}) {
+    fun fetchUsers(onSuccess: () -> Unit = {}) {
         request(execute = {
             TmpUsersRepo.usersRepo.getUsers()
         }) {
@@ -51,7 +51,7 @@ class AlbumsVM @Inject constructor(
     }
 
     //TODO: inject mappers
-    private fun fetchAlbums() {
+    fun fetchAlbums() {
         val userId = currentUser?.id ?: return
         request(execute = {
             TmpAlbumsRepo.albumsRepo.getAlbums(userId)
