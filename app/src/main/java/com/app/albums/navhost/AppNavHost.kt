@@ -21,7 +21,7 @@ class AppNavHost(
     private val host: ScreenHost
         get() = this
 
-    private val startDestination = Screen.Details
+    private val startDestination = Screen.Home
 
     //TODO: make architecture
     @Composable

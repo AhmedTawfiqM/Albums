@@ -12,6 +12,10 @@ interface AppScreen<VM : AppViewModel> {
 
     fun activity() = host.activity
 
+    fun navigate(route: ScreenRoute) {
+        host.navigate(route.route)
+    }
+
     @Composable
     fun Content()
 }
