@@ -6,7 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.app.presentation.activity.screen.AppScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeScreen(
     override val activity: ComponentActivity,
     override val navController: NavHostController,

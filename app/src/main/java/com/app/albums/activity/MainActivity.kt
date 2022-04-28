@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.albums.navhost.AppNavHost
 import com.app.presentation.activity.AppComposeActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 class MainActivity : AppComposeActivity() {
 

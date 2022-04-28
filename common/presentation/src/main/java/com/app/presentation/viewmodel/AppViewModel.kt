@@ -6,8 +6,9 @@ import com.app.data.data_manager.DataManager
 import retrofit2.HttpException
 import retrofit2.Response
 
-open class AppViewModel(val dm: DataManager) : ViewModel() {
-
+open class AppViewModel(
+    val dm: DataManager
+) : ViewModel() {
 
     suspend fun <T : Any> request(
         execute: suspend () -> Response<T>
