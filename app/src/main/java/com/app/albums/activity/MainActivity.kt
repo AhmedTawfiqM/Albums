@@ -1,5 +1,6 @@
 package com.app.albums.activity
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.app.albums.navhost.AppNavHost
@@ -13,6 +14,7 @@ class MainActivity : AppComposeActivity() {
     @Inject
     lateinit var testString: String
 
+    @ExperimentalFoundationApi
     @Composable
     override fun Content() {
         val navController = rememberNavController()

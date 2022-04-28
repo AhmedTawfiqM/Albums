@@ -1,6 +1,7 @@
 package com.app.albums.navhost
 
 import androidx.activity.ComponentActivity
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
@@ -17,6 +18,7 @@ class AppNavHost(
 ) : ScreenHost {
     private val host: ScreenHost = this
 
+    @ExperimentalFoundationApi
     @Composable
     fun Setup() {
         NavHost(

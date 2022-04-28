@@ -32,6 +32,7 @@ dependencies {
     api project(AppModule.core)
     api project(AppModule.data)
 
+    api Libs.compose.coil
     api Libs.compose.activity
     api Libs.compose.ui
     api Libs.compose.material

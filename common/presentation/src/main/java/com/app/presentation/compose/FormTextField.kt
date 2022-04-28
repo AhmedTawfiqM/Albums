@@ -2,9 +2,12 @@ package com.app.presentation.compose
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.remember
@@ -33,7 +36,7 @@ fun FormTextField(
     singleLine: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    shape: Shape = MaterialTheme.shapes.small,
+    shape: Shape = RoundedCornerShape(15.dp),
     color: Color,
     onValueChange: (String) -> Unit = {},
 ) {
@@ -45,7 +48,8 @@ fun FormTextField(
                 onValueChange(it)
             },
             modifier = modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(50.dp),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = textStyle,
