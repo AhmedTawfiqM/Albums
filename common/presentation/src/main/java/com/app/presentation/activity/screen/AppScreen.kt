@@ -5,9 +5,9 @@ import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-interface AppScreen<vm : AppViewModel> : ScreenHost {
+interface AppScreen<VM : AppViewModel> : ScreenHost {
 
-    val vm: AppViewModel
+    val vm: VM
 
     @Composable
     fun Content()

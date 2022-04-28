@@ -31,8 +31,13 @@ dependencies {
     api Libs.materialDesignLibs.material
     api Libs.androidLibs.constraintLayout
 
+    api Libs.daggerLibs.navigation
+
     api Libs.daggerLibs.hilt
     kapt Libs.daggerLibs.hiltCompiler
+
+    api Libs.daggerLibs.lifecycleViewModelKtx
+    api Libs.daggerLibs.lifecycleViewModelCompose
 
     api Libs.daggerLibs.lifecycleViewModel
     kapt Libs.daggerLibs.lifecycleViewModelCompiler

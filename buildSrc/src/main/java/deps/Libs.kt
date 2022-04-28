@@ -52,6 +52,10 @@ object Libs {
         private const val lifecycleViewModelVersion = "1.0.0-alpha03"
         const val lifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:$lifecycleViewModelVersion"
         const val lifecycleViewModelCompiler= "androidx.hilt:hilt-compiler:$lifecycleViewModelVersion"
+        const val navigation = "androidx.hilt:hilt-navigation-compose:1.0.0"
+    //TODO: move to seperated ViewModelLib
+        const val lifecycleViewModelKtx= "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+        const val lifecycleViewModelCompose= "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     }
 
     object ComposeLibs {

@@ -24,7 +24,7 @@ object AlbumsModule {
 
     @Singleton
     @Provides
-    fun provideAlbumsRepository(api: AlbumsApi): AlbumsRepository {
+    fun provideAlbumsRepository(api: AlbumsApi): AlbumsRepositoryImpl {
         return AlbumsRepositoryImpl(api)
     }
 }

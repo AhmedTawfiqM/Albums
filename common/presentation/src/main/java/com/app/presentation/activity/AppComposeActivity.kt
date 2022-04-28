@@ -7,7 +7,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import com.app.albums.screen.ui.theme.AppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 abstract class AppComposeActivity : ComponentActivity() {
 
     @Composable

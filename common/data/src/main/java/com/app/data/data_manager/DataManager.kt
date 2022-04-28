@@ -1,10 +1,10 @@
 package com.app.data.data_manager
 
-import com.app.core.albums.AlbumsRepository
-import com.app.core.photos.PhotosRepository
+import com.app.data.api.albums.AlbumsRepositoryImpl
+import com.app.data.api.photos.PhotosRepositoryImpl
 
 data class DataManager(
     //val sharedPref: SharedPref //TODO: inject SharedPref
-    val albumsRepo: AlbumsRepository,
-    val photosRepo: PhotosRepository
+    val albumsRepo: AlbumsRepositoryImpl,
+    val photosRepo: PhotosRepositoryImpl
 )

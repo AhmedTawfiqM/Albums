@@ -8,18 +8,20 @@ import com.app.data.data_manager.DataManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 object DataManagerModule {
 
-    @Singleton
     @Provides
+    @ViewModelScoped
     fun provideDataManager(
-        albumsRepo: AlbumsRepository,
-        photosRepo: PhotosRepository,
+        albumsRepo: AlbumsRepositoryImpl,
+        photosRepo: PhotosRepositoryImpl,
     ): DataManager {
         return DataManager(
             albumsRepo = albumsRepo,

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -13,7 +14,9 @@ import com.app.albums.screen.details.DetailsScreen
 import com.app.albums.screen.home.HomeScreen
 import com.app.albums.screen.home.HomeVM
 import com.app.presentation.viewmodel.AppViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AppNavHost(
     private val activity: ComponentActivity,
     private val navController: NavHostController
@@ -27,7 +30,8 @@ class AppNavHost(
             startDestination = Screen.Home.route
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(activity, navController).Content()
+                val vm = hiltViewModel<HomeVM>()
+               // HomeScreen( activity, navController).Content()
             }
             composable(Screen.Details.route) {
                 DetailsScreen(activity, navController).Content()
