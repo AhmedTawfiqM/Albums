@@ -1,4 +1,4 @@
-package com.app.albums.screen.home
+package com.app.albums.screen.albums
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -7,21 +7,22 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.SavedStateHandle
 import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.albums.shared.di.TmpUsersRepo
-import com.app.core.domain.albums.model.AlbumDto
+import com.app.core.domain.albums.model.Album
+import com.app.core.domain.albums.model.AlbumDtoMapper
 import com.app.core.domain.users.model.UserDto
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeVM @Inject constructor(
+class AlbumsVM @Inject constructor(
     private val state: SavedStateHandle, //TODO: remove
 ) : AppViewModel() {
 
     var currentUserDto: UserDto? by mutableStateOf(null)
     private var users = SnapshotStateList<UserDto>()
 
-    var albums = SnapshotStateList<AlbumDto>()
+    var albums = SnapshotStateList<Album>()
 
     init {
         fetchUsers()
@@ -42,6 +43,7 @@ class HomeVM @Inject constructor(
         }
     }
 
+    //TODO: inject mappers
     private fun fetchAlbums() {
         request(execute = {
             TmpAlbumsRepo.albumsRepo.getAlbums()
@@ -51,7 +53,7 @@ class HomeVM @Inject constructor(
                 return@request
             }
             albums.clear()
-            albums.addAll(it)
+            albums.addAll(AlbumDtoMapper().mapList(it))
         }
     }
 }

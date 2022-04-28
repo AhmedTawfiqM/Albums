@@ -1,4 +1,4 @@
-package com.app.albums.screen.home
+package com.app.albums.screen.albums
 
 import androidx.activity.viewModels
 import androidx.compose.foundation.clickable
@@ -6,19 +6,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.app.albums.navhost.Screen
-import com.app.data.data_manager.DataManager
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
-class HomeScreen(
+class AlbumsScreen(
     override val host: ScreenHost
-) : AppScreen<HomeVM> {
+) : AppScreen<AlbumsVM> {
 
     //TODO: move Creation to AppScreen
-    override val vm: HomeVM by activity().viewModels()
+    override val vm: AlbumsVM by activity().viewModels()
 
     @Composable
     override fun Content() {

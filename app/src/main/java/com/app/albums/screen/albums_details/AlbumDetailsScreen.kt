@@ -1,16 +1,18 @@
-package com.app.albums.screen.details
+package com.app.albums.screen.albums_details
 
 import androidx.activity.viewModels
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.ScreenHost
 
-class DetailsScreen(
-    override val host: ScreenHost
-) : AppScreen<DetailsVM> {
+class AlbumDetailsScreen(
+    override val host: ScreenHost,
+    val album: Album
+) : AppScreen<AlbumsDetailsVM> {
 
-    override val vm: DetailsVM by host.activity.viewModels()
+    override val vm: AlbumsDetailsVM by host.activity.viewModels()
 
     @Composable
     override fun Content() {

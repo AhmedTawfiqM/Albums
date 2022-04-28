@@ -5,8 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.app.albums.screen.details.DetailsScreen
-import com.app.albums.screen.home.HomeScreen
+import com.app.albums.screen.albums_details.AlbumDetailsScreen
+import com.app.albums.screen.albums.AlbumsScreen
+import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +31,7 @@ class AppNavHost(
         ) {
             screenBuilder(Screen.Home) {
                 //val vm = hiltViewModel<HomeVM>()
-                HomeScreen(host).Content()
+                AlbumsScreen(host).Content()
             }
             screenBuilder(Screen.Details, arguments = listOf(
                 navArgument("albumId") {
@@ -39,7 +40,8 @@ class AppNavHost(
                     nullable = false
                 }
             )) {
-                DetailsScreen(this@AppNavHost).Content()
+                val album = Album()
+                AlbumDetailsScreen(this@AppNavHost, album).Content()
             }
         }
     }

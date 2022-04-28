@@ -1,4 +1,4 @@
-package com.app.albums.screen.details
+package com.app.albums.screen.albums_details
 
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.SavedStateHandle
@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsVM @Inject constructor(
+class AlbumsDetailsVM @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
 ) : AppViewModel() {
 
