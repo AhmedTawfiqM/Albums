@@ -29,7 +29,7 @@ interface AppScreen<VM : AppViewModel> {
     }
 
     fun setup() {
-        vm.loading.observeForever { isLoading ->
+        vm.toggleLoading.observeForever { isLoading ->
             when (isLoading) {
                 true -> loaderDialog.show()
                 false -> loaderDialog.dismiss()

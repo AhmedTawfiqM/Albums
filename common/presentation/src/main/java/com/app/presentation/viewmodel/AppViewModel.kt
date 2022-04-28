@@ -11,16 +11,16 @@ import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
 
-    var loading = MutableLiveData(false)
+    var toggleLoading = MutableLiveData(false)
 
     private val coroutinesRequester by lazy {
         CoroutinesRequester(object : Presenter {
             override fun showLoading() {
-                loading.value = true
+                toggleLoading.value = true
             }
 
             override fun hideLoading() {
-                loading.value = false
+                toggleLoading.value = false
             }
 
             override fun showError(ex: Throwable) {
