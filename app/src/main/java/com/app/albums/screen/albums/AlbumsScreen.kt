@@ -42,7 +42,7 @@ class AlbumsScreen(
             UserDetailsView()
             MyAlbumsTextView()
 
-            AlbumsListView(vm.albums).Content{
+            AlbumsListView(vm.albums).Content {
                 onAlbumClick(it)
             }
         }
@@ -64,9 +64,9 @@ class AlbumsScreen(
             text = "My Albums", //TODO : localize
             fontWeight = FontWeight.SemiBold,
             color = Color.Black,
-            fontSize = 20.sp
+            fontSize = 18.sp
         )
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(15.dp))
     }
 
     @Composable
@@ -96,7 +96,7 @@ class AlbumsScreen(
             color = Color.Black,
             fontSize = 25.sp
         )
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(15.dp))
     }
 
     private fun onAlbumClick(album: Album) {
