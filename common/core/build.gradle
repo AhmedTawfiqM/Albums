@@ -34,6 +34,9 @@ dependencies {
     api Libs.daggerLibs.hilt
     kapt Libs.daggerLibs.hiltCompiler
 
+    api Libs.daggerLibs.lifecycleViewModel
+    kapt Libs.daggerLibs.lifecycleViewModelCompiler
+
     api Libs.networkLibs.retrofitRuntime
     api Libs.networkLibs.retrofitConverter
     api Libs.networkLibs.retrofitAdapter

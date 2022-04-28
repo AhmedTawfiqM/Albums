@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeVM @Inject constructor(
-    private val dataManager: DataManager
-) : AppViewModel(dataManager) {
+private val dataManager: DataManager
+) : AppViewModel() {
 
     val testState = mutableStateOf("TestVM")
 }

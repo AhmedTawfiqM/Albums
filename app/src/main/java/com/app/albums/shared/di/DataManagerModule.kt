@@ -2,6 +2,8 @@ package com.app.albums.shared.di
 
 import com.app.core.albums.AlbumsRepository
 import com.app.core.photos.PhotosRepository
+import com.app.data.api.albums.AlbumsRepositoryImpl
+import com.app.data.api.photos.PhotosRepositoryImpl
 import com.app.data.data_manager.DataManager
 import dagger.Module
 import dagger.Provides
@@ -17,7 +19,7 @@ object DataManagerModule {
     @Provides
     fun provideDataManager(
         albumsRepo: AlbumsRepository,
-        photosRepo: PhotosRepository
+        photosRepo: PhotosRepository,
     ): DataManager {
         return DataManager(
             albumsRepo = albumsRepo,

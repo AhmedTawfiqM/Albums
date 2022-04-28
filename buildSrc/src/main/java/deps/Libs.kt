@@ -49,9 +49,9 @@ object Libs {
         const val hilt = "com.google.dagger:hilt-android:$version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$version"
 
-//        def hilt_lifecycle_viewmodel = "1.0.0-alpha03"
-//        implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel"
-//        kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_viewmodel"
+        private const val lifecycleViewModelVersion = "1.0.0-alpha03"
+        const val lifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:$lifecycleViewModelVersion"
+        const val lifecycleViewModelCompiler= "androidx.hilt:hilt-compiler:$lifecycleViewModelVersion"
     }
 
     object ComposeLibs {

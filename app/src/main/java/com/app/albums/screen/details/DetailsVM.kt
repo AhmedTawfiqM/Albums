@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsVM @Inject constructor(dm: DataManager) :
-    AppViewModel(dm) {
+    AppViewModel() {
 }
