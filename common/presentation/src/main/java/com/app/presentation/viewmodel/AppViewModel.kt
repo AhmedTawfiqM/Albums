@@ -1,13 +1,25 @@
 package com.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.app.core.domain.users.model.User
 import com.app.core.utils.NetworkResult
+import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
 
-    suspend fun <T : Any> request(
+    fun <T : Any> request(
+        execute: suspend () -> Response<T>,
+    ) {
+        viewModelScope.launch {
+            val response = callApi(execute = execute)
+        }
+    }
+
+     suspend fun <T : Any> callApi(
         execute: suspend () -> Response<T>
     ): NetworkResult<T> {
         return try {
