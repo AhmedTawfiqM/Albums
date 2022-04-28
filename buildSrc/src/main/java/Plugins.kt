@@ -8,6 +8,8 @@ object Plugins {
     const val kotlinKapt = "kotlin-kapt"
     const val hilt = "dagger.hilt.android.plugin"
 
+    const val kotlinParcelize="kotlin-parcelize"
+
     object Dagger {
         const val hilt = "dagger.hilt.android.plugin"
     }

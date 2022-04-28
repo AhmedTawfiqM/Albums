@@ -5,7 +5,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.app.albums.navhost.NavHostArgument
 import com.app.albums.navhost.Screen
+import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,8 +23,10 @@ class AlbumsScreen(
     @Composable
     override fun Content() {
         Text(modifier = Modifier.clickable {
+            NavHostArgument.setValue(Album(1))
             navigate(Screen.Details)
         }, text = "Hello Home Screen: ${vm.albums.size}")
     }
 
+    //TODO: launchedEffect load data
 }

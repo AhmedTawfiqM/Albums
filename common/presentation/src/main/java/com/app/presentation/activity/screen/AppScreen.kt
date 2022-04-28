@@ -6,9 +6,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 interface AppScreen<VM : AppViewModel> {
-
     val vm: VM
     val host: ScreenHost
+
+    @Composable
+    fun Content()
 
     fun activity() = host.activity
 
@@ -16,6 +18,8 @@ interface AppScreen<VM : AppViewModel> {
         host.navigate(route)
     }
 
-    @Composable
-    fun Content()
+    fun navigate(route: String) {
+        host.navigate(route)
+    }
+
 }

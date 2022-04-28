@@ -20,7 +20,7 @@ class AppNavHost(
     private val host: ScreenHost
         get() = this
 
-    private val startDestination = Screen.Details
+    private val startDestination = Screen.Home
 
     //TODO: make architecture
     @Composable
@@ -33,15 +33,9 @@ class AppNavHost(
                 //val vm = hiltViewModel<HomeVM>()
                 AlbumsScreen(host).Content()
             }
-            screenBuilder(Screen.Details, arguments = listOf(
-                navArgument("albumId") {
-                    type = NavType.StringType
-                    defaultValue = "-1"
-                    nullable = false
-                }
-            )) {
+            screenBuilder(Screen.Details) {
                 val album = Album(id = 2)
-                AlbumDetailsScreen(this@AppNavHost, album).Content()
+                AlbumDetailsScreen(this@AppNavHost).Content()
             }
         }
     }
