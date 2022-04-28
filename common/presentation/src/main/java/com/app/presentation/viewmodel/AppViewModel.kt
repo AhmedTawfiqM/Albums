@@ -1,23 +1,27 @@
 package com.app.presentation.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.mutableStateOf
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.core.utils.NetworkResult
+import com.app.presentation.loader.LoaderDialog
+import com.app.presentation.loader.ProgressDialog
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
 
-    //TODO: implement loader
-    val loading = mutableStateOf(false)
+    var loading = MutableLiveData(false)
 
     fun <T : Any> request(
         execute: suspend () -> Response<T>,
         completion: (T) -> Unit,
     ) {
+        loading.value = true
+
         viewModelScope.launch {
             when (val response = callApi(execute = execute)) {
                 is NetworkResult.Error,
@@ -27,6 +31,8 @@ open class AppViewModel : ViewModel() {
                 }
                 is NetworkResult.Success -> completion(response.data)
             }
+
+            loading.value = false
         }
     }
 
