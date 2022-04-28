@@ -4,5 +4,5 @@ import com.app.core.domain.albums.model.Album
 import retrofit2.Response
 
 interface AlbumsRepository {
-    fun getAlbums(): Response<List<Album>>
+    suspend fun getAlbums(): Response<List<Album>>
 }

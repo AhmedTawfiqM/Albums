@@ -29,5 +29,5 @@ object TmpAlbumsRepo {
         baseUrl = BuildConfig.API_BASE_URL,
         client = okHttpClient,
     ).create(AlbumsApi::class.java)
-    val albumsRepositoryImpl = AlbumsRepositoryImpl(albumsApi)
+    val albumsRepo = AlbumsRepositoryImpl(albumsApi)
 }

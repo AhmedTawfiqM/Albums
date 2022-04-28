@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface AlbumsApi {
 
     @GET("albums")
-    fun getAlbums(): Response<List<Album>>
+    suspend fun getAlbums(): Response<List<Album>>
 }

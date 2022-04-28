@@ -27,7 +27,7 @@ open class AppViewModel : ViewModel() {
     }
 
     //TODO: seperate to CoroutineRequester Class
-    suspend fun <T : Any> callApi(
+    private suspend fun <T : Any> callApi(
         execute: suspend () -> Response<T>
     ): NetworkResult<T> {
         return try {
