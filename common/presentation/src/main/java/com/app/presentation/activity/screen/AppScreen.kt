@@ -13,6 +13,7 @@ interface AppScreen<VM : AppViewModel> {
     fun Content()
 
     fun activity() = host.activity
+    fun context() = host.activity.baseContext
 
     fun navigate(route: ScreenRoute) {
         host.navigate(route)

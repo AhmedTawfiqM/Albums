@@ -8,7 +8,7 @@ class AlbumDtoMapper : Mapper<AlbumDto, Album> {
         return Album(
             id = model.id,
             userId = model.userId,
-            title = model.title,
+            title = model.title ?: "",
             body = model.body,
         )
     }

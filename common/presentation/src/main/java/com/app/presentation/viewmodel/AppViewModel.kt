@@ -1,6 +1,7 @@
 package com.app.presentation.viewmodel
 
 import android.util.Log
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.core.utils.NetworkResult
@@ -9,6 +10,9 @@ import retrofit2.HttpException
 import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
+
+    //TODO: implement loader
+    val loading = mutableStateOf(false)
 
     fun <T : Any> request(
         execute: suspend () -> Response<T>,
