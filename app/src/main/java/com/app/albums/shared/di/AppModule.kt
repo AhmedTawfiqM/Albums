@@ -10,6 +10,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    //TODO: to be removed
     @Provides
     @Singleton
     fun provideTestString(): String = "test String"

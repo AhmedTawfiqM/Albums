@@ -42,11 +42,4 @@ object NetworkModule {
             okHttpClient,
         )
     }
-
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): AlbumsApi {
-        return retrofit.create(AlbumsApi::class.java)
-    }
-
 }
