@@ -1,21 +1,16 @@
 package com.app.albums.screen.details
 
-import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import com.app.albums.screen.home.HomeVM
 import com.app.presentation.activity.screen.AppScreen
-import com.app.presentation.viewmodel.AppViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.app.presentation.activity.screen.ScreenHost
 
 class DetailsScreen(
-    override val activity: ComponentActivity,
-    override val navController: NavHostController
+    override val host: ScreenHost
 ) : AppScreen<DetailsVM> {
 
-    override val vm: DetailsVM by activity.viewModels()
+    override val vm: DetailsVM by host.activity.viewModels()
 
     @Composable
     override fun Content() {

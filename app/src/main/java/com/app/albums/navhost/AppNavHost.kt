@@ -13,14 +13,18 @@ import androidx.navigation.compose.composable
 import com.app.albums.screen.details.DetailsScreen
 import com.app.albums.screen.home.HomeScreen
 import com.app.albums.screen.home.HomeVM
+import com.app.presentation.activity.screen.ScreenHost
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AppNavHost(
-    private val activity: ComponentActivity,
-    private val navController: NavHostController
-) {
+    override val activity: ComponentActivity,
+    override val navController: NavHostController
+) : ScreenHost {
+
+    private val host: ScreenHost
+        get() = this
 
     //TODO: make architecture
     @Composable
@@ -31,10 +35,10 @@ class AppNavHost(
         ) {
             composable(Screen.Home.route) {
                 val vm = hiltViewModel<HomeVM>()
-               // HomeScreen( activity, navController).Content()
+                HomeScreen(host).Content()
             }
             composable(Screen.Details.route) {
-                DetailsScreen(activity, navController).Content()
+                DetailsScreen(this@AppNavHost).Content()
             }
         }
     }

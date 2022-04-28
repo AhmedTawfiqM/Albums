@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeVM @Inject constructor(
-    private val dm: DataManager
+
 ) : AppViewModel() {
 
     val testState = mutableStateOf("TestVM")

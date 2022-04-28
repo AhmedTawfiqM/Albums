@@ -1,20 +1,18 @@
 package com.app.albums.screen.home
 
-import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
 import com.app.presentation.activity.screen.AppScreen
+import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeScreen(
-    override val activity: ComponentActivity,
-    override val navController: NavHostController,
+    override val host: ScreenHost
 ) : AppScreen<HomeVM> {
 
-    override val vm: HomeVM by activity.viewModels()
+    override val vm: HomeVM by activity().viewModels()
 
     @Composable
     override fun Content() {
