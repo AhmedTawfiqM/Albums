@@ -15,13 +15,9 @@ class AlbumsDetailsVM @Inject constructor(
 
     var photos = SnapshotStateList<PhotoDto>()
 
-    init {
-        fetchPhotos()
-    }
-
-    private fun fetchPhotos() {
+    fun fetchPhotos(albumId: Int) {
         request(execute = {
-            TmpPhotosRepo.photosRepo.getPhotos()
+            TmpPhotosRepo.photosRepo.getPhotos(albumId)
         }) {
             if (it.isNullOrEmpty()) {
                 //TODO: show error

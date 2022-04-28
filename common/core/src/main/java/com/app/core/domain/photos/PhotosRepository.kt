@@ -4,5 +4,5 @@ import com.app.core.domain.photos.model.PhotoDto
 import retrofit2.Response
 
 interface PhotosRepository {
-    suspend fun getPhotos(): Response<List<PhotoDto>>
+    suspend fun getPhotos(albumId: Int): Response<List<PhotoDto>>
 }

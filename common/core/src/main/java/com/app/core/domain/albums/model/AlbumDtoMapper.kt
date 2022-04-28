@@ -13,7 +13,4 @@ class AlbumDtoMapper : Mapper<AlbumDto, Album> {
         )
     }
 
-//    fun map(models: List<AlbumDto>): List<Album> {
-//        return mapList(models)
-//    }
 }

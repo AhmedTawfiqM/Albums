@@ -7,7 +7,7 @@ data class AlbumDto(
     var userId: Int? = null,
 
     @SerializedName("id")
-    var id: Int? = null,
+    var id: Int,
 
     @SerializedName("title")
     var title: String? = null,

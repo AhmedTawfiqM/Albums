@@ -9,7 +9,9 @@ import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.albums.shared.di.TmpUsersRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.albums.model.AlbumDtoMapper
+import com.app.core.domain.users.model.User
 import com.app.core.domain.users.model.UserDto
+import com.app.core.domain.users.model.UserDtoMapper
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,17 +21,19 @@ class AlbumsVM @Inject constructor(
     private val state: SavedStateHandle, //TODO: remove
 ) : AppViewModel() {
 
-    var currentUserDto: UserDto? by mutableStateOf(null)
-    private var users = SnapshotStateList<UserDto>()
+    var currentUser: User? by mutableStateOf(null)
+    private var users = SnapshotStateList<User>()
 
     var albums = SnapshotStateList<Album>()
 
     init {
-        fetchUsers()
-        fetchAlbums()
+        //TODO: move to LaunchedEffect
+        fetchUsers {
+            fetchAlbums()
+        }
     }
 
-    private fun fetchUsers() {
+    private fun fetchUsers(onSuccess: () -> Unit = {}) {
         request(execute = {
             TmpUsersRepo.usersRepo.getUsers()
         }) {
@@ -37,16 +41,20 @@ class AlbumsVM @Inject constructor(
                 //TODO: show error
                 return@request
             }
+            //TODO: Inject Mapper
             users.clear()
-            users.addAll(it)
-            currentUserDto = users.random()
+            users.addAll(UserDtoMapper().mapList(it))
+            currentUser = users.random()
+
+            onSuccess()
         }
     }
 
     //TODO: inject mappers
     private fun fetchAlbums() {
+        val userId = currentUser?.id ?: return
         request(execute = {
-            TmpAlbumsRepo.albumsRepo.getAlbums()
+            TmpAlbumsRepo.albumsRepo.getAlbums(userId)
         }) {
             if (it.isNullOrEmpty()) {
                 //TODO: show error

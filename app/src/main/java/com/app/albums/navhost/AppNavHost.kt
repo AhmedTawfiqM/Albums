@@ -20,7 +20,7 @@ class AppNavHost(
     private val host: ScreenHost
         get() = this
 
-    private val startDestination = Screen.Home
+    private val startDestination = Screen.Details
 
     //TODO: make architecture
     @Composable
@@ -40,7 +40,7 @@ class AppNavHost(
                     nullable = false
                 }
             )) {
-                val album = Album()
+                val album = Album(id = 2)
                 AlbumDetailsScreen(this@AppNavHost, album).Content()
             }
         }

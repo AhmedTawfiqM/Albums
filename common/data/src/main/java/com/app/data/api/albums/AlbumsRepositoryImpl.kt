@@ -6,7 +6,7 @@ import retrofit2.Response
 
 class AlbumsRepositoryImpl(val api: AlbumsApi) : AlbumsRepository {
 
-    override suspend fun getAlbums(): Response<List<AlbumDto>> {
-        return api.getAlbums()
+    override suspend fun getAlbums(userId: Int): Response<List<AlbumDto>> {
+        return api.getAlbums(userId)
     }
 }
