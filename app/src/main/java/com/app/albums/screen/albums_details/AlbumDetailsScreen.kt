@@ -50,7 +50,7 @@ class AlbumDetailsScreen(
     @Composable
     private fun GalleryView() {
         PhotosGridView(vm.photos).Content {
-
+            showToast(context(), it.title ?: "")
         }
     }
 
