@@ -1,14 +1,10 @@
 package com.app.albums.screen.albums
 
 import androidx.activity.viewModels
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -81,7 +77,7 @@ class AlbumsScreen(
             )
             Spacer(modifier = Modifier.height(10.dp))
             Text(
-                text = vm.currentUser!!.addressDetails,
+                text = vm.userAddressDetails,
                 color = Color.Black,
                 fontSize = 13.sp
             )

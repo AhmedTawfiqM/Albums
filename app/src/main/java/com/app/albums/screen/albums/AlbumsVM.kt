@@ -26,12 +26,11 @@ class AlbumsVM @Inject constructor(
 
     var albums = SnapshotStateList<Album>()
 
-    init {
-        //TODO: move to LaunchedEffect
-        fetchUsers {
-            fetchAlbums()
+    val userAddressDetails: String
+        get() = currentUser?.address.run {
+            if (this == null) return@run ""
+            "$street, $suite, $city , ${currentUser!!.phone}"
         }
-    }
 
     fun fetchUsers(onSuccess: () -> Unit = {}) {
         request(execute = {
