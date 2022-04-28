@@ -16,26 +16,20 @@ class AppNavHost(
     override val activity: ComponentActivity,
     override val navController: NavHostController
 ) : ScreenHost {
+    private val host: ScreenHost = this
 
-    private val host: ScreenHost
-        get() = this
-
-    private val startDestination = Screen.Home
-
-    //TODO: make architecture
     @Composable
     fun Setup() {
         NavHost(
             navController = navController,
-            startDestination = startDestination.route
+            startDestination = Screen.Home.route
         ) {
             screenBuilder(Screen.Home) {
                 //val vm = hiltViewModel<HomeVM>()
                 AlbumsScreen(host).Content()
             }
             screenBuilder(Screen.Details) {
-                val album = Album(id = 2)
-                AlbumDetailsScreen(this@AppNavHost).Content()
+                AlbumDetailsScreen(host).Content()
             }
         }
     }
