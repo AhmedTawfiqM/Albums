@@ -2,8 +2,6 @@ package com.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.app.core.domain.users.model.User
 import com.app.core.utils.NetworkResult
 import kotlinx.coroutines.launch
 import retrofit2.HttpException

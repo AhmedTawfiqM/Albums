@@ -7,8 +7,8 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.SavedStateHandle
 import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.albums.shared.di.TmpUsersRepo
-import com.app.core.domain.albums.model.Album
-import com.app.core.domain.users.model.User
+import com.app.core.domain.albums.model.AlbumDto
+import com.app.core.domain.users.model.UserDto
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -18,10 +18,10 @@ class HomeVM @Inject constructor(
     private val state: SavedStateHandle, //TODO: remove
 ) : AppViewModel() {
 
-    var currentUser: User? by mutableStateOf(null)
-    private var users = SnapshotStateList<User>()
+    var currentUserDto: UserDto? by mutableStateOf(null)
+    private var users = SnapshotStateList<UserDto>()
 
-    var albums = SnapshotStateList<Album>()
+    var albums = SnapshotStateList<AlbumDto>()
 
     init {
         fetchUsers()
@@ -38,7 +38,7 @@ class HomeVM @Inject constructor(
             }
             users.clear()
             users.addAll(it)
-            currentUser = users.random()
+            currentUserDto = users.random()
         }
     }
 

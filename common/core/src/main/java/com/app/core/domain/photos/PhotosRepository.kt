@@ -1,8 +1,8 @@
 package com.app.core.domain.photos
 
-import com.app.core.domain.photos.model.Photo
+import com.app.core.domain.photos.model.PhotoDto
 import retrofit2.Response
 
 interface PhotosRepository {
-    suspend fun getPhotos(): Response<List<Photo>>
+    suspend fun getPhotos(): Response<List<PhotoDto>>
 }

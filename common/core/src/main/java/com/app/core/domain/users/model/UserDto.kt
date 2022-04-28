@@ -2,21 +2,21 @@ package com.app.core.domain.users.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(@SerializedName("website")
+data class UserDto(@SerializedName("website")
                 val website: String = "",
-                @SerializedName("address")
+                   @SerializedName("address")
                 val address: Address,
-                @SerializedName("phone")
+                   @SerializedName("phone")
                 val phone: String = "",
-                @SerializedName("name")
+                   @SerializedName("name")
                 val name: String = "",
-                @SerializedName("company")
+                   @SerializedName("company")
                 val company: Company,
-                @SerializedName("id")
+                   @SerializedName("id")
                 val id: Int = 0,
-                @SerializedName("email")
+                   @SerializedName("email")
                 val email: String = "",
-                @SerializedName("username")
+                   @SerializedName("username")
                 val username: String = "")
 
 

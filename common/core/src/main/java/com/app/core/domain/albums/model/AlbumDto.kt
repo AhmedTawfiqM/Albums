@@ -2,7 +2,7 @@ package com.app.core.domain.albums.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Album(
+data class AlbumDto(
     @SerializedName("userId")
     var userId: Int? = null,
 

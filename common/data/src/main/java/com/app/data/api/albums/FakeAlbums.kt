@@ -1,8 +1,8 @@
 package com.app.data.api.albums
 
-import com.app.core.domain.albums.model.Album
+import com.app.core.domain.albums.model.AlbumDto
 
 object FakeAlbums {
 
-    val albums  = listOf<Album>()
+    val albums  = listOf<AlbumDto>()
 }
