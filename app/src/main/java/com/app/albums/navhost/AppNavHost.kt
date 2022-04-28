@@ -2,9 +2,7 @@ package com.app.albums.navhost
 
 import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
+import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.app.albums.screen.details.DetailsScreen
@@ -34,7 +32,13 @@ class AppNavHost(
                 //val vm = hiltViewModel<HomeVM>()
                 HomeScreen(host).Content()
             }
-            screenBuilder(Screen.Details) {
+            screenBuilder(Screen.Details, arguments = listOf(
+                navArgument("albumId") {
+                    type = NavType.StringType
+                    defaultValue = "-1"
+                    nullable = false
+                }
+            )) {
                 DetailsScreen(this@AppNavHost).Content()
             }
         }
@@ -42,9 +46,13 @@ class AppNavHost(
 
     private fun NavGraphBuilder.screenBuilder(
         screen: Screen,
+        arguments: List<NamedNavArgument> = emptyList(),
         content: @Composable (NavBackStackEntry) -> Unit
     ) {
-        this.composable(screen.route) {
+        this.composable(
+            route = screen.route,
+            arguments = arguments
+        ) {
             content(it)
         }
     }

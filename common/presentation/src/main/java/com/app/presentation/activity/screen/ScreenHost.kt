@@ -9,8 +9,8 @@ interface ScreenHost {
     val activity: ComponentActivity
     val navController: NavHostController
 
-    fun navigate(route: String) {
-        navController.navigate(route)
+    fun navigate(route: ScreenRoute) {
+        navController.navigate(route.route)
     }
 
     fun popBackStack() {
