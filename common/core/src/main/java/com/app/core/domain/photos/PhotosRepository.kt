@@ -1,6 +1,6 @@
-package com.app.core.photos
+package com.app.core.domain.photos
 
-import com.app.core.photos.model.Photo
+import com.app.core.domain.photos.model.Photo
 import retrofit2.Response
 
 interface PhotosRepository {

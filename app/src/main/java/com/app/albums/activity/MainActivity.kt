@@ -5,9 +5,13 @@ import androidx.navigation.compose.rememberNavController
 import com.app.albums.navhost.AppNavHost
 import com.app.presentation.activity.AppComposeActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppComposeActivity() {
+
+    @Inject
+    lateinit var testString: String
 
     @Composable
     override fun Content() {

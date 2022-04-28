@@ -19,4 +19,9 @@ object AppModule {
         return app as App
     }
 
+    @Singleton
+    @Provides
+    fun provideTestString(): String {
+        return "test String"
+    }
 }

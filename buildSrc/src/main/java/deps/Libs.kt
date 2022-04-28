@@ -45,7 +45,7 @@ object Libs {
     }
 
     object DaggerLibs {
-        private const val version = "2.37"
+        private const val version = "2.41"
         const val hilt = "com.google.dagger:hilt-android:$version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$version"
 

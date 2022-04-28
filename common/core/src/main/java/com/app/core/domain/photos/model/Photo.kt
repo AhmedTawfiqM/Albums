@@ -1,4 +1,4 @@
-package com.app.core.photos.model
+package com.app.core.domain.photos.model
 
 import com.google.gson.annotations.SerializedName
 

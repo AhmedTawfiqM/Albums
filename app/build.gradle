@@ -2,7 +2,6 @@ import deps.Libs
 
 apply plugin: Plugins.androidApplication
 apply from: "$rootDir/$GradleName.commonAndroidLib"
-//apply plugin: 'kotlin-android' //TODO: remove
 
 android {
     compileSdk 31

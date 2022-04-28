@@ -1,6 +1,5 @@
 package com.app.albums.shared.di.domain
 
-import com.app.core.albums.AlbumsRepository
 import com.app.data.api.albums.AlbumsApi
 import com.app.data.api.albums.AlbumsRepositoryImpl
 import dagger.Module

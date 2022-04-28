@@ -1,11 +1,8 @@
-package com.app.data.api.albums
+package com.app.core.domain.albums
 
 import com.app.core.domain.albums.model.Album
 import retrofit2.Response
-import retrofit2.http.GET
 
-interface AlbumsApi {
-
-    @GET("albums")
+interface AlbumsRepository {
     fun getAlbums(): Response<List<Album>>
 }
