@@ -1,10 +1,7 @@
 package com.app.albums.navhost
 
-import android.annotation.SuppressLint
 import androidx.activity.ComponentActivity
-import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -12,9 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.app.albums.screen.details.DetailsScreen
 import com.app.albums.screen.home.HomeScreen
-import com.app.albums.screen.home.HomeVM
 import com.app.presentation.activity.screen.ScreenHost
-import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,12 +21,14 @@ class AppNavHost(
     private val host: ScreenHost
         get() = this
 
+    private val startDestination = Screen.Details
+
     //TODO: make architecture
     @Composable
     fun Setup() {
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route
+            startDestination = startDestination.route
         ) {
             screenBuilder(Screen.Home) {
                 //val vm = hiltViewModel<HomeVM>()

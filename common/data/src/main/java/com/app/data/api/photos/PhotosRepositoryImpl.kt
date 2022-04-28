@@ -6,7 +6,7 @@ import retrofit2.Response
 
 class PhotosRepositoryImpl(val api: PhotosApi) : PhotosRepository {
 
-    override fun getPhotos(): Response<List<Photo>> {
-        return Response.success(FakePhotos.photos)
+    override suspend fun getPhotos(): Response<List<Photo>> {
+        return api.getPhotos()
     }
 }

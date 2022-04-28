@@ -14,7 +14,7 @@ class DetailsScreen(
 
     @Composable
     override fun Content() {
-        Text(text = "Hello Details Screen")
+        Text(text = "Hello Details Screen ${vm.photos.size}")
     }
 
 }
