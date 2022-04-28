@@ -34,7 +34,7 @@ class AppNavHost(
             startDestination = Screen.Home.route
         ) {
             composable(Screen.Home.route) {
-                val vm = hiltViewModel<HomeVM>()
+                //val vm = hiltViewModel<HomeVM>()
                 HomeScreen(host).Content()
             }
             composable(Screen.Details.route) {
