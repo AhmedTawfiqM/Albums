@@ -13,13 +13,21 @@ open class AppViewModel : ViewModel() {
 
     fun <T : Any> request(
         execute: suspend () -> Response<T>,
-    ) {
+        completion: (T) -> Unit,
+        ) {
         viewModelScope.launch {
-            val response = callApi(execute = execute)
+            when (val response = callApi(execute = execute)) {
+                is NetworkResult.Error,
+                is NetworkResult.Exception -> {
+                    //TODO show error
+                }
+                is NetworkResult.Success -> completion(response.data)
+            }
         }
     }
 
-     suspend fun <T : Any> callApi(
+    //TODO: seperate to CoroutineRequester Class
+    suspend fun <T : Any> callApi(
         execute: suspend () -> Response<T>
     ): NetworkResult<T> {
         return try {

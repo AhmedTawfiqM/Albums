@@ -22,26 +22,23 @@ class HomeVM @Inject constructor(
 ) : AppViewModel() {
 
     var currentUser: User? by mutableStateOf(null)
-    var users = SnapshotStateList<User>()
+    private var users = SnapshotStateList<User>()
 
     init {
         fetchUsers()
     }
 
-    fun fetchUsers() {
-        viewModelScope.launch {
-            val response = callApi {
-                TmpUsersRepo.usersRepo.getUsers()
+    private fun fetchUsers() {
+        request(execute = {
+            TmpUsersRepo.usersRepo.getUsers()
+        }) {
+            if (users.isNullOrEmpty()) {
+                //TODO: show error
+                return@request
             }
-            when (response) {
-                is NetworkResult.Error,
-                is NetworkResult.Exception -> Log.e("fetchUsers", "fetchUsers: ")
-                is NetworkResult.Success -> {
-                    users.addAll(response.data)
-                    currentUser = users[0]
-                }
-            }
-
+            users.clear()
+            users.addAll(it)
+            currentUser = users[0]
         }
     }
 }

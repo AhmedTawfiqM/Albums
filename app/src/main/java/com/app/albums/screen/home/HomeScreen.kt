@@ -19,7 +19,7 @@ class HomeScreen(
 
     @Composable
     override fun Content() {
-        Text(text = "Hello Home Screen: ${vm.users.size}")
+        Text(text = "Hello Home Screen: ${vm.currentUser?.name ?: ""}")
     }
 
 }
