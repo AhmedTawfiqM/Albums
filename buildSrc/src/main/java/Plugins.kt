@@ -1,4 +1,7 @@
 object Plugins {
+
+    val dagger = DaggerPlugins
+
     const val androidApplication = "com.android.application"
     const val androidLibrary = "com.android.library"
 
@@ -6,11 +9,10 @@ object Plugins {
     const val kotlinkapt = "kotlin-kapt"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val kotlinKapt = "kotlin-kapt"
-    const val hilt = "dagger.hilt.android.plugin"
 
-    const val kotlinParcelize="kotlin-parcelize"
+    const val kotlinParcelize = "kotlin-parcelize"
 
-    object Dagger {
+    object DaggerPlugins {
         const val hilt = "dagger.hilt.android.plugin"
     }
 }

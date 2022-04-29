@@ -21,7 +21,6 @@ import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class AlbumsScreen(
     override val host: ScreenHost
 ) : AppScreen<AlbumsVM> {

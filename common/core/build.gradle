@@ -2,7 +2,7 @@ import deps.Libs
 import deps.TestLibs
 
 apply from: "$rootDir/$GradleName.common"
-apply plugin: Plugins.hilt
+apply plugin: Plugins.dagger.hilt
 
 android {
     buildTypes {
@@ -31,16 +31,16 @@ dependencies {
     api Libs.materialDesignLibs.material
     api Libs.androidLibs.constraintLayout
 
-    api Libs.daggerLibs.navigation
-
+    //Dagger
     api Libs.daggerLibs.hilt
     kapt Libs.daggerLibs.hiltCompiler
+    api Libs.daggerLibs.lifecycleViewModel
+    kapt Libs.daggerLibs.lifecycleViewModelCompiler
+    api Libs.daggerLibs.navigation
+
 
     api Libs.daggerLibs.lifecycleViewModelKtx
     api Libs.daggerLibs.lifecycleViewModelCompose
-
-    api Libs.daggerLibs.lifecycleViewModel
-    kapt Libs.daggerLibs.lifecycleViewModelCompiler
 
     api Libs.networkLibs.retrofitRuntime
     api Libs.networkLibs.retrofitConverter

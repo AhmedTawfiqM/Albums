@@ -59,9 +59,9 @@ dependencies {
     implementation project(AppModule.core)
     implementation project(AppModule.data)
     implementation project(AppModule.presentation)
-    implementation 'com.google.android.material:material:1.5.0'
 
     //TODO: move to buildSrc
+    implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'

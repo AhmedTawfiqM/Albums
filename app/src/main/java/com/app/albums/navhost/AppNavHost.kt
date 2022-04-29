@@ -11,7 +11,6 @@ import com.app.albums.screen.albums.AlbumsScreen
 import com.app.presentation.activity.screen.ScreenHost
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class AppNavHost(
     override val activity: ComponentActivity,
     override val navController: NavHostController
