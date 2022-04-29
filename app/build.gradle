@@ -62,9 +62,9 @@ dependencies {
     implementation project(AppModule.presentation)
 
     //Dagger Hilt
-    api Libs.daggerLibs.hilt
+    implementation Libs.daggerLibs.hilt
     kapt Libs.daggerLibs.hiltCompiler
-    api Libs.daggerLibs.lifecycleViewModel
+    implementation Libs.daggerLibs.lifecycleViewModel
     kapt Libs.daggerLibs.lifecycleViewModelCompiler
-    api Libs.daggerLibs.navigation
+    implementation Libs.daggerLibs.navigation
 }
