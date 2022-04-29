@@ -23,8 +23,9 @@ class AlbumDetailsVM @Inject constructor(
     var searchTV = mutableStateOf("")
 
     var filteredPhotos = SnapshotStateList<Photo>()
-
     //TODO: Inject Mapper
+    private val photoDtoMapper = PhotoDtoMapper()
+
     fun fetchPhotos(albumId: Int) {
         request(execute = {
             getPhotosUseCase.invoke(albumId)
@@ -34,7 +35,7 @@ class AlbumDetailsVM @Inject constructor(
                 return@request
             }
             photos.clear()
-            photos.addAll(PhotoDtoMapper().mapList(it))
+            photos.addAll(photoDtoMapper.mapList(it))
             filteredPhotos.addAll(photos)
         }
     }
@@ -55,5 +56,4 @@ class AlbumDetailsVM @Inject constructor(
             filteredPhotos.addAll(filterPhotos)
         }
     }
-
 }

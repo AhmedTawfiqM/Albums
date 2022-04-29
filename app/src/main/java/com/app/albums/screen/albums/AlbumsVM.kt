@@ -9,6 +9,7 @@ import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.albums.shared.di.TmpUsersRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.albums.model.AlbumDtoMapper
+import com.app.core.domain.albums.use_case.GetAlbumsUseCase
 import com.app.core.domain.photos.use_case.GetPhotosUseCase
 import com.app.core.domain.users.model.User
 import com.app.core.domain.users.model.UserDto
@@ -19,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AlbumsVM @Inject constructor(
-    private val getPhotosUseCase: GetPhotosUseCase
+    private val getAlbumsUseCase: GetAlbumsUseCase
 ) : AppViewModel() {
 
     var currentUser: User? by mutableStateOf(null)
@@ -54,7 +55,7 @@ class AlbumsVM @Inject constructor(
     fun fetchAlbums() {
         val userId = currentUser?.id ?: return
         request(execute = {
-            TmpAlbumsRepo.albumsRepo.getAlbums(userId)
+            getAlbumsUseCase.invoke(userId)
         }) {
             if (it.isNullOrEmpty()) {
                 //TODO: show error
