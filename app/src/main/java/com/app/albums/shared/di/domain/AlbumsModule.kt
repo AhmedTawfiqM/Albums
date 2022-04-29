@@ -1,7 +1,10 @@
 package com.app.albums.shared.di.domain
 
+import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.data.api.albums.AlbumsApi
 import com.app.data.api.albums.AlbumsRepositoryImpl
+import com.app.data.api.albums.source.LocalAlbumsDataSrc
+import com.app.data.api.albums.source.RemoteAlbumsDataSrc
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,9 +24,11 @@ object AlbumsModule {
         return retrofit.create(AlbumsApi::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideAlbumsRepository(api: AlbumsApi): AlbumsRepositoryImpl {
-        return AlbumsRepositoryImpl(api)
-    }
+//    @Singleton
+//    @Provides
+//    fun provideAlbumsRepository(api: AlbumsApi): AlbumsRepositoryImpl {
+//         val remoteAlbumsDataSrc = RemoteAlbumsDataSrc(TmpAlbumsRepo.albumsApi)
+//         val localAlbumsDataSrc = LocalAlbumsDataSrc()
+//        return AlbumsRepositoryImpl(api)
+//    }
 }
