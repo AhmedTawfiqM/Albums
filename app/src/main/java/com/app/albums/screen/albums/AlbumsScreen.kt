@@ -19,7 +19,6 @@ import com.app.albums.screen.albums.view.AlbumsListView
 import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.ScreenHost
-import dagger.hilt.android.AndroidEntryPoint
 
 class AlbumsScreen(
     override val host: ScreenHost
@@ -40,6 +39,7 @@ class AlbumsScreen(
             AlbumsListView(vm.albums).Content {
                 onAlbumClick(it)
             }
+            ShowLoaderProgress()
         }
     }
 

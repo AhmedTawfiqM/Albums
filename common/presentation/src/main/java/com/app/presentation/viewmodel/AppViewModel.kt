@@ -1,6 +1,6 @@
 package com.app.presentation.viewmodel
 
-import androidx.lifecycle.MutableLiveData
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.presentation.app.CoreApp
@@ -11,7 +11,7 @@ import retrofit2.Response
 
 open class AppViewModel : ViewModel() {
 
-    var toggleLoading = MutableLiveData(false)
+    var toggleLoading = mutableStateOf(false)
 
     private val coroutinesRequester by lazy {
         CoroutinesRequester(object : Presenter {
