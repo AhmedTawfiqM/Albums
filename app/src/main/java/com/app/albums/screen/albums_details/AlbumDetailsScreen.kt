@@ -33,9 +33,11 @@ class AlbumDetailsScreen(
     override fun Content() {
         LoadPhotos()
 
-        Column(modifier = Modifier.padding(10.dp)) {
-            AlbumTitleView()
-            SearchTextField()
+        Column {
+            Column(modifier = Modifier.padding(10.dp)) {
+                AlbumTitleView()
+                SearchTextField()
+            }
             GalleryView()
         }
     }
