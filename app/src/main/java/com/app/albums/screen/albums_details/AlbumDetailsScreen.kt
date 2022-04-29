@@ -64,15 +64,16 @@ class AlbumDetailsScreen(
             color = AppColor.gray,
             label = {
                 Text(
-                    text = "Search an Image", //TODO: localize
-                    fontSize = 10.sp
+                    text = "Search an Images..", //TODO: localize
+                    fontSize = 15.sp,
+                    color = AppColor.grayDark
                 )
             },
             leadingIcon = {
                 Image(
                     modifier = Modifier.size(25.dp),
-                    painter = painterResource(id = R.drawable.ic_menu_search),
-                    contentDescription = "Search an Image"
+                    painter = painterResource(id = R.drawable.ic_search_category_default),
+                    contentDescription = "Search an Image" //TODO: localize
                 )
             }
         ) {
