@@ -71,13 +71,13 @@ class AlbumsScreen(
                 text = vm.currentUser!!.name,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.Black,
-                fontSize = 15.sp
+                fontSize = 18.sp
             )
             Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = vm.userAddressDetails,
                 color = Color.Black,
-                fontSize = 13.sp
+                fontSize = 15.sp
             )
         }
     }
@@ -88,9 +88,9 @@ class AlbumsScreen(
             text = "Profile", //TODO : localize
             fontWeight = FontWeight.Bold,
             color = Color.Black,
-            fontSize = 25.sp
+            fontSize = 30.sp
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(20.dp))
     }
 
     private fun onAlbumClick(album: Album) {

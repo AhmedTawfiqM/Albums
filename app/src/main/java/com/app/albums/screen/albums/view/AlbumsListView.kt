@@ -3,6 +3,7 @@ package com.app.albums.screen.albums.view
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
@@ -35,18 +36,18 @@ class AlbumsListView(val albums: List<Album>) {
             modifier = Modifier.height(1.dp).alpha(0.2f),
             color = Color.Gray
         )
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         Text(
             modifier = Modifier.clickable {
                 onAlbumClick(album)
-            },
-            text = album.title ?: "",
+            }.padding(start = 10.dp),
+            text = album.title,
             color = Color.Black,
             fontSize = 15.sp
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(12.dp))
     }
 
 }

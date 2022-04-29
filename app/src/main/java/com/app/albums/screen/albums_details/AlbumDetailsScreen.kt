@@ -67,7 +67,7 @@ class AlbumDetailsScreen(
             label = {
                 Text(
                     text = "Search an Images..", //TODO: localize
-                    fontSize = 15.sp,
+                    fontSize = 16.sp,
                     color = AppColor.grayDark
                 )
             },
