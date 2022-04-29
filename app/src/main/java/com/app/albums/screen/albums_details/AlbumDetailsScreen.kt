@@ -19,13 +19,14 @@ import androidx.compose.ui.unit.sp
 import com.app.albums.screen.albums_details.view.PhotosGridView
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.NavControllerHost
+import com.app.presentation.color.AppColor
 import com.app.presentation.compose.FormTextField
 import com.app.presentation.showToast
 
 class AlbumDetailsScreen(
     override val host: NavControllerHost,
 ) : AppScreen<AlbumDetailsVM>() {
-    override val vm: AlbumDetailsVM by host.activity.viewModels()
+    override val vm: AlbumDetailsVM by activity().viewModels()
 
     @ExperimentalFoundationApi
     @Composable
@@ -56,22 +57,28 @@ class AlbumDetailsScreen(
 
     @Composable
     private fun SearchTextField() {
+        Spacer(modifier = Modifier.height(10.dp))
         FormTextField(
             state = vm.searchTV,
-            color = Color.Gray,
+            height = 50.dp,
+            color = AppColor.gray,
             label = {
-                Text(text = "Search an Image") //TODO: localize
+                Text(
+                    text = "Search an Image", //TODO: localize
+                    fontSize = 10.sp
+                )
             },
             leadingIcon = {
                 Image(
                     modifier = Modifier.size(25.dp),
                     painter = painterResource(id = R.drawable.ic_menu_search),
-                    contentDescription = ""
+                    contentDescription = "Search an Image"
                 )
             }
         ) {
             vm.onSearchQuery(it)
         }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 
     @Composable
@@ -83,7 +90,7 @@ class AlbumDetailsScreen(
             fontSize = 25.sp,
             maxLines = 1
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(12.dp))
         Divider(
             modifier = Modifier
                 .height(1.dp)
@@ -91,5 +98,4 @@ class AlbumDetailsScreen(
             color = Color.Gray
         )
     }
-
 }

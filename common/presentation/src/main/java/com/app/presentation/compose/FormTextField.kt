@@ -7,6 +7,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -38,10 +40,11 @@ fun FormTextField(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape = RoundedCornerShape(15.dp),
     color: Color,
+    height: Dp = 70.dp,
     onValueChange: (String) -> Unit = {},
 ) {
     Column {
-        OutlinedTextField(
+        TextField(
             value = state.value,
             onValueChange = {
                 state.value = it
@@ -49,7 +52,7 @@ fun FormTextField(
             },
             modifier = modifier
                 .fillMaxWidth()
-                .height(70.dp),
+                .height(height),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = textStyle,
@@ -67,9 +70,9 @@ fun FormTextField(
                 cursorColor = Color.Black,
                 errorCursorColor = Color.Black,
                 focusedIndicatorColor = Color.Black,
-//                unfocusedIndicatorColor = Color.Transparent,
-//                unfocusedLabelColor = Color.Transparent,
-//                disabledLabelColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                unfocusedLabelColor = Color.Transparent,
+                disabledLabelColor = Color.Transparent,
                 errorIndicatorColor = Color.Black,
                 disabledIndicatorColor = Color.Transparent
             ),
