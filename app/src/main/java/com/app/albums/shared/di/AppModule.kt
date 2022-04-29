@@ -17,6 +17,5 @@ object AppModule {
     @Provides
     fun provideApplication(@ApplicationContext app: Context): App {
         return app as App
-
     }
 }

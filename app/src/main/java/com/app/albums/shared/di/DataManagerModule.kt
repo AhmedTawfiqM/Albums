@@ -14,6 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataManagerModule {
 
+    //TODO: This will inject all use case to provide all data with all viewModel
     @Singleton
     @Provides
     fun provideDataManager(

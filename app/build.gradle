@@ -61,6 +61,7 @@ dependencies {
     implementation project(AppModule.data)
     implementation project(AppModule.presentation)
 
+    //TODO: move to buildSrc dagger Libs
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
     def hilt_lifecycle_viewmodel = "1.0.0-alpha03"
