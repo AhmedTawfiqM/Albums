@@ -1,6 +1,5 @@
 package com.app.albums.activity
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.app.albums.navhost.AppNavHost

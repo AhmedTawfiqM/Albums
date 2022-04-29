@@ -8,13 +8,14 @@ import com.app.albums.shared.di.TmpPhotosRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.photos.model.Photo
 import com.app.core.domain.photos.model.PhotoDtoMapper
+import com.app.core.domain.photos.use_case.GetPhotosUseCase
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class AlbumDetailsVM @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    private val getPhotosUseCase: GetPhotosUseCase
 ) : AppViewModel() {
 
     var album: Album = NavHostArgument.getValue()
@@ -26,7 +27,7 @@ class AlbumDetailsVM @Inject constructor(
     //TODO: Inject Mapper
     fun fetchPhotos(albumId: Int) {
         request(execute = {
-            TmpPhotosRepo.photosRepo.getPhotos(albumId)
+            getPhotosUseCase.invoke(albumId)
         }) {
             if (it.isNullOrEmpty()) {
                 //TODO: show error

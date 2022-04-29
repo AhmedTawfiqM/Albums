@@ -9,6 +9,7 @@ import com.app.albums.shared.di.TmpAlbumsRepo
 import com.app.albums.shared.di.TmpUsersRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.albums.model.AlbumDtoMapper
+import com.app.core.domain.photos.use_case.GetPhotosUseCase
 import com.app.core.domain.users.model.User
 import com.app.core.domain.users.model.UserDto
 import com.app.core.domain.users.model.UserDtoMapper
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AlbumsVM @Inject constructor(
-    private val state: SavedStateHandle, //TODO: remove
+    private val getPhotosUseCase: GetPhotosUseCase
 ) : AppViewModel() {
 
     var currentUser: User? by mutableStateOf(null)
