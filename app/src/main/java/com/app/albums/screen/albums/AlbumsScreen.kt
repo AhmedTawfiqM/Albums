@@ -39,7 +39,6 @@ class AlbumsScreen(
             AlbumsListView(vm.albums).Content {
                 onAlbumClick(it)
             }
-            ShowLoaderProgress()
         }
     }
 

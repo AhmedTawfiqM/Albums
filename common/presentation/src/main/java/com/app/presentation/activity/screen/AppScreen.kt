@@ -13,12 +13,18 @@ import com.app.presentation.loader.ProgressDialog
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-interface AppScreen<VM : AppViewModel> {
-    val vm: VM
-    val host: ScreenHost
+abstract class AppScreen<VM : AppViewModel> {
+    abstract val vm: VM
+    abstract val host: ScreenHost
 
     @Composable
-    fun Content()
+    protected abstract fun Content()
+
+    @Composable
+    fun ScreenContent(){
+        Content()
+        ShowLoaderProgress()
+    }
 
     fun activity() = host.activity
     fun context(): Context = host.activity.baseContext
@@ -32,7 +38,7 @@ interface AppScreen<VM : AppViewModel> {
     }
 
     @Composable
-    fun ShowLoaderProgress() {
+    private fun ShowLoaderProgress() {
         if (!vm.toggleLoading.value) return
         ComposeCircularProgress().Content()
     }

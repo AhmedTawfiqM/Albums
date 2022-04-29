@@ -36,7 +36,6 @@ class AlbumDetailsScreen(
             AlbumTitleView()
             SearchTextField()
             GalleryView()
-            ShowLoaderProgress()
         }
     }
 
