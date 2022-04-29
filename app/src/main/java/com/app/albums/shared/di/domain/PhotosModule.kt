@@ -40,14 +40,14 @@ object PhotosModule {
     @Provides
     fun providePhotosRepository(
         api: PhotosApi,
-        remoteSrc: PhotosDataSource,
-        localSrc: PhotosDataSource
+        remoteSrc: RemotePhotosDataSrc,
+        localSrc: LocalPhotosDataSrc
     ): PhotosRepository {
         return PhotosRepositoryImpl(remoteSrc, localSrc)
     }
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideGetPhotosUseCase(repository: PhotosRepository): GetPhotosUseCase {
         return GetPhotosUseCase(repository)
     }

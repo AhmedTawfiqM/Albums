@@ -7,11 +7,11 @@ object Libs {
     val networkLibs = NetworkLibs
     val gsonLibs = GsonLibs
     val coroutinesLibs = CoroutinesLibs
-    //val daggerLibs = DaggerLibs
+    val daggerLibs = DaggerLibs
     val compose = ComposeLibs
 
     object AndroidLibs {
-        const val core = "androidx.core:core-ktx:${Versions.appCompat}"
+        const val core = "androidx.core:core-ktx:${Versions.core}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
@@ -73,10 +73,10 @@ object Libs {
 }
 
 object Versions {
-    //TODO: add to every specified object
+    //TODO: move to every specified object
     //android core
-    const val core = "1.6.0"
-    const val appCompat = "1.3.1"
+    const val core = "1.7.0"
+    const val appCompat = "1.4.1"
     const val material = "1.4.0"
     const val constraintLayout = "2.1.0"
 

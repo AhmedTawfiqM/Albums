@@ -2,6 +2,7 @@ import deps.Libs
 
 apply plugin: Plugins.androidApplication
 apply from: "$rootDir/$GradleName.commonAndroidLib"
+apply plugin: Plugins.dagger.hilt
 
 android {
     compileSdk 31
@@ -59,6 +60,12 @@ dependencies {
     implementation project(AppModule.core)
     implementation project(AppModule.data)
     implementation project(AppModule.presentation)
+
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    def hilt_lifecycle_viewmodel = "1.0.0-alpha03"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel"
+    kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_viewmodel"
 
     //TODO: move to buildSrc
     implementation 'com.google.android.material:material:1.5.0'
