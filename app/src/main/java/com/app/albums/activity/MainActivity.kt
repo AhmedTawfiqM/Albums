@@ -18,7 +18,7 @@ class MainActivity : AppComposeActivity() {
 
     @Composable
     override fun Content() {
-        showToast(this,photosUseCase.hashCode().toString())
+        showToast(this, photosUseCase.hashCode().toString())
         val navController = rememberNavController()
         AppNavHost(this, navController).Setup()
     }
