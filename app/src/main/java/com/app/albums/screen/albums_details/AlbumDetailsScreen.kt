@@ -18,12 +18,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.albums.screen.albums_details.view.PhotosGridView
 import com.app.presentation.activity.screen.AppScreen
-import com.app.presentation.activity.screen.ScreenHost
+import com.app.presentation.activity.screen.NavControllerHost
 import com.app.presentation.compose.FormTextField
 import com.app.presentation.showToast
 
 class AlbumDetailsScreen(
-    override val host: ScreenHost,
+    override val host: NavControllerHost,
 ) : AppScreen<AlbumDetailsVM>() {
     override val vm: AlbumDetailsVM by host.activity.viewModels()
 

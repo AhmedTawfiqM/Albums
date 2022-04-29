@@ -4,7 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavHostController
 
-interface ScreenHost {
+interface NavControllerHost {
     val activity: ComponentActivity
     val navController: NavHostController
 
