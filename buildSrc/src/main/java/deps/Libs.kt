@@ -69,6 +69,9 @@ object Libs {
         const val navigation = "androidx.navigation:navigation-compose:$navVersion"
 
         const val coil = "io.coil-kt:coil-compose:2.0.0-rc03"
+
+        //    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+//    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     }
 }
 

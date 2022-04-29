@@ -61,18 +61,10 @@ dependencies {
     implementation project(AppModule.data)
     implementation project(AppModule.presentation)
 
-    //TODO: move to buildSrc dagger Libs
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
-    def hilt_lifecycle_viewmodel = "1.0.0-alpha03"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel"
-    kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_viewmodel"
-
-    //TODO: move to buildSrc
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-//    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    //Dagger Hilt
+    api Libs.daggerLibs.hilt
+    kapt Libs.daggerLibs.hiltCompiler
+    api Libs.daggerLibs.lifecycleViewModel
+    kapt Libs.daggerLibs.lifecycleViewModelCompiler
+    api Libs.daggerLibs.navigation
 }
