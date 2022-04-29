@@ -24,7 +24,7 @@ import com.app.presentation.showToast
 
 class AlbumDetailsScreen(
     override val host: ScreenHost,
-) : AppScreen<AlbumDetailsVM> {
+) : AppScreen<AlbumDetailsVM>() {
     override val vm: AlbumDetailsVM by host.activity.viewModels()
 
     @ExperimentalFoundationApi

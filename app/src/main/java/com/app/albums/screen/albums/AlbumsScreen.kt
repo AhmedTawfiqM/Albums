@@ -22,7 +22,7 @@ import com.app.presentation.activity.screen.ScreenHost
 
 class AlbumsScreen(
     override val host: ScreenHost
-) : AppScreen<AlbumsVM> {
+) : AppScreen<AlbumsVM>() {
 
     //TODO: try to move 'Creation of VM' to AppScreen
     override val vm: AlbumsVM by activity().viewModels()
