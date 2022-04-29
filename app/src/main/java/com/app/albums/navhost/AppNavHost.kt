@@ -16,7 +16,6 @@ class AppNavHost(
 ) : NavControllerHost {
     private val host: NavControllerHost = this
 
-    @ExperimentalFoundationApi
     @Composable
     fun Setup() {
         NavHost(

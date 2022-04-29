@@ -7,7 +7,7 @@ object Libs {
     val networkLibs = NetworkLibs
     val gsonLibs = GsonLibs
     val coroutinesLibs = CoroutinesLibs
-    val daggerLibs = DaggerLibs
+    //val daggerLibs = DaggerLibs
     val compose = ComposeLibs
 
     object AndroidLibs {

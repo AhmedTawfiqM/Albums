@@ -15,7 +15,6 @@ class MainActivity : AppComposeActivity() {
     @Inject
     lateinit var photosUseCase: GetPhotosUseCase
 
-    @ExperimentalFoundationApi
     @Composable
     override fun Content() {
         //photosUseCase.hashCode()
