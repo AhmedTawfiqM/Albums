@@ -21,9 +21,9 @@ object PhotosModule {
         return retrofit.create(PhotosApi::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun providePhotosRepository(api: PhotosApi): PhotosRepositoryImpl {
-        return PhotosRepositoryImpl(api)
-    }
+//    @Singleton
+//    @Provides
+//    fun providePhotosRepository(api: PhotosApi): PhotosRepositoryImpl {
+//        return PhotosRepositoryImpl(api)
+//    }
 }

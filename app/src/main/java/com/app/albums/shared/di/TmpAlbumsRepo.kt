@@ -7,8 +7,12 @@ import com.app.data.api.albums.source.LocalAlbumsDataSrc
 import com.app.data.api.albums.source.RemoteAlbumsDataSrc
 import com.app.data.api.photos.PhotosApi
 import com.app.data.api.photos.PhotosRepositoryImpl
+import com.app.data.api.photos.source.LocalPhotosDataSrc
+import com.app.data.api.photos.source.RemotePhotosDataSrc
 import com.app.data.api.users.UsersRepositoryImpl
 import com.app.data.api.users.UsersApi
+import com.app.data.api.users.source.LocalUsersDataSrc
+import com.app.data.api.users.source.RemoteUsersDataSrc
 import com.app.data.netowrk.RetrofitHelper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,7 +29,14 @@ object TmpUsersRepo {
         baseUrl = BuildConfig.API_BASE_URL,
         client = okHttpClient,
     ).create(UsersApi::class.java)
-    val usersRepo = UsersRepositoryImpl(usersApi)
+
+    private val remoteUsersDataSrc = RemoteUsersDataSrc(usersApi)
+    private val localUsersDataSrc = LocalUsersDataSrc()
+
+    val usersRepo = UsersRepositoryImpl(
+        remoteUsersDataSrc,
+        localUsersDataSrc
+    )
 }
 
 object TmpAlbumsRepo {
@@ -48,5 +59,12 @@ object TmpPhotosRepo {
         baseUrl = BuildConfig.API_BASE_URL,
         client = okHttpClient,
     ).create(PhotosApi::class.java)
-    val photosRepo = PhotosRepositoryImpl(photosApi)
+
+    private val remotePhotosDataSrc = RemotePhotosDataSrc(photosApi)
+    private val localPhotosDataSrc = LocalPhotosDataSrc()
+
+    val photosRepo = PhotosRepositoryImpl(
+        remotePhotosDataSrc,
+        localPhotosDataSrc
+    )
 }

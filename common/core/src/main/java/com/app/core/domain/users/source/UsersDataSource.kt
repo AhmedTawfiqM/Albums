@@ -1,8 +1,8 @@
-package com.app.core.domain.users
+package com.app.core.domain.users.source
 
 import com.app.core.domain.users.model.UserDto
 import retrofit2.Response
 
-interface UserRepository {
+interface UsersDataSource {
     suspend fun getUsers(): Response<List<UserDto>>
 }
