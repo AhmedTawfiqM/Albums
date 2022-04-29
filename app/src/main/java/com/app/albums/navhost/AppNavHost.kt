@@ -23,7 +23,6 @@ class AppNavHost(
             startDestination = Screen.Albums.route
         ) {
             screenBuilder(Screen.Albums) {
-                //val vm = hiltViewModel<HomeVM>()
                 AlbumsScreen(host).ScreenContent()
             }
             screenBuilder(Screen.AlbumDetails) {

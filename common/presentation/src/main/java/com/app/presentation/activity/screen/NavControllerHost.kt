@@ -28,4 +28,5 @@ interface NavControllerHost {
         return navController.previousBackStackEntry
             ?.arguments?.getParcelable(key)
     }
+
 }

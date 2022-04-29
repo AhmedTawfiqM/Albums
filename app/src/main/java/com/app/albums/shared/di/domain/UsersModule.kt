@@ -1,12 +1,10 @@
 package com.app.albums.shared.di.domain
 
-import com.app.core.domain.photos.repository.PhotosRepository
-import com.app.core.domain.photos.source.PhotosDataSource
-import com.app.core.domain.photos.use_case.GetPhotosUseCase
-import com.app.data.api.photos.PhotosApi
-import com.app.data.api.photos.PhotosRepositoryImpl
-import com.app.data.api.photos.source.LocalPhotosDataSrc
-import com.app.data.api.photos.source.RemotePhotosDataSrc
+import com.app.core.domain.users.use_case.GetUsersUseCase
+import com.app.data.api.users.UsersApi
+import com.app.data.api.users.UsersRepositoryImpl
+import com.app.data.api.users.source.LocalUsersDataSrc
+import com.app.data.api.users.source.RemoteUsersDataSrc
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,40 +14,40 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object PhotosModule {
+object UsersModule {
 
     @Provides
     @Singleton
-    fun providePhotosApiService(retrofit: Retrofit): PhotosApi {
-        return retrofit.create(PhotosApi::class.java)
+    fun provideUsersApiService(retrofit: Retrofit): UsersApi {
+        return retrofit.create(UsersApi::class.java)
     }
 
     @Singleton
     @Provides
-    fun providePhotosRemoteDataSrc(api: PhotosApi): RemotePhotosDataSrc {
-        return RemotePhotosDataSrc(api)
+    fun provideUsersRemoteDataSrc(api: UsersApi): RemoteUsersDataSrc {
+        return RemoteUsersDataSrc(api)
     }
 
     @Singleton
     @Provides
-    fun providePhotosLocalDataSrc(api: PhotosApi): LocalPhotosDataSrc {
-        return LocalPhotosDataSrc()
+    fun provideUsersLocalDataSrc(api: UsersApi): LocalUsersDataSrc {
+        return LocalUsersDataSrc()
     }
 
     @Singleton
     @Provides
-    fun providePhotosRepository(
-        api: PhotosApi,
-        remoteSrc: RemotePhotosDataSrc,
-        localSrc: LocalPhotosDataSrc
-    ): PhotosRepository {
-        return PhotosRepositoryImpl(remoteSrc, localSrc)
+    fun provideUsersRepository(
+        api: UsersApi,
+        remoteSrc: RemoteUsersDataSrc,
+        localSrc: LocalUsersDataSrc
+    ): UsersRepositoryImpl {
+        return UsersRepositoryImpl(remoteSrc, localSrc)
     }
 
     @Provides
     @Singleton
-    fun provideGetPhotosUseCase(repository: PhotosRepository): GetPhotosUseCase {
-        return GetPhotosUseCase(repository)
+    fun provideGetUsersUseCase(repository: UsersRepositoryImpl): GetUsersUseCase {
+        return GetUsersUseCase(repository)
     }
 
 }

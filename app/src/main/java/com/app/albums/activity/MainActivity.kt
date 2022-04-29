@@ -12,12 +12,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppComposeActivity() {
 
-    @Inject
-    lateinit var photosUseCase: GetPhotosUseCase
-
     @Composable
     override fun Content() {
-        showToast(this, photosUseCase.hashCode().toString())
         val navController = rememberNavController()
         AppNavHost(this, navController).Setup()
     }

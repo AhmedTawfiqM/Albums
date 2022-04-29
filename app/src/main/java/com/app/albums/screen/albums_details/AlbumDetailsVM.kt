@@ -2,9 +2,7 @@ package com.app.albums.screen.albums_details
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.lifecycle.SavedStateHandle
 import com.app.albums.navhost.NavHostArgument
-import com.app.albums.shared.di.TmpPhotosRepo
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.photos.model.Photo
 import com.app.core.domain.photos.model.PhotoDtoMapper

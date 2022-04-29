@@ -2,7 +2,6 @@ package com.app.albums.shared.di
 
 import android.content.Context
 import com.app.albums.shared.App
-import com.app.albums.shared.MainApp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +15,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApplication(@ApplicationContext app: Context): MainApp {
-        return app as MainApp
+    fun provideApplication(@ApplicationContext app: Context): App {
+        return app as App
 
     }
 }

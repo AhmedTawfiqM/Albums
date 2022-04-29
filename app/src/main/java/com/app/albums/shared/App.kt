@@ -1,9 +1,9 @@
 package com.app.albums.shared
 
-import android.app.Application
 import com.app.presentation.app.CoreApp
 import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : CoreApp() {
 
     override fun onCreate() {
@@ -14,7 +14,4 @@ class App : CoreApp() {
 
     private fun setup() {
     }
-}
-@HiltAndroidApp
-class MainApp : Application() {
 }
