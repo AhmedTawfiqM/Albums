@@ -21,6 +21,7 @@ import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.NavControllerHost
 import com.app.presentation.color.AppColor
 import com.app.presentation.compose.FormTextField
+import com.app.presentation.showDebugToast
 import com.app.presentation.showToast
 
 class AlbumDetailsScreen(
@@ -46,7 +47,7 @@ class AlbumDetailsScreen(
     @Composable
     private fun GalleryView() {
         PhotosGridView(vm.filteredPhotos).Content {
-            showToast(context(), it.title ?: "")
+            showDebugToast(value = "Title of Album : ${it.title}")
         }
     }
 
@@ -81,7 +82,7 @@ class AlbumDetailsScreen(
         ) {
             vm.onSearchQuery(it)
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(5.dp))
     }
 
     @Composable
