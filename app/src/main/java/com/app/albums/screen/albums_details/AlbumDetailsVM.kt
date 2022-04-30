@@ -29,7 +29,7 @@ class AlbumDetailsVM @Inject constructor(
             getPhotosUseCase.invoke(albumId)
         }) {
             if (it.isNullOrEmpty()) {
-                //TODO: show error
+                handleError("Empty or Null Photos List") //TODO: localize
                 return@request
             }
             photos.clear()
