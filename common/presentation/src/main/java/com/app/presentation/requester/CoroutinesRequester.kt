@@ -11,6 +11,7 @@ class CoroutinesRequester(
 ) {
     private var requestHandler = RequestOptionsHandler(presenter)
 
+    //TODO: implement RetryRequest Logic with option
     fun <T : Any> request(
         options: RequestOption = RequestOption.defaultOption(),
         coroutineScope: CoroutineScope,
