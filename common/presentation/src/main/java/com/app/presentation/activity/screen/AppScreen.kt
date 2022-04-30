@@ -21,13 +21,8 @@ abstract class AppScreen<VM : AppViewModel> {
     fun activity() = host.activity
     fun context(): Context = host.activity.baseContext
 
-    fun navigate(route: ScreenRoute) {
-        host.navigate(route)
-    }
-
-    fun navigate(route: String) {
-        host.navigate(route)
-    }
+    fun navigate(route: ScreenRoute) = host.navigate(route)
+    fun navigate(route: String) = host.navigate(route)
 
     @Composable
     private fun ShowLoaderProgress() {
