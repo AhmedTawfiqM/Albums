@@ -1,12 +1,16 @@
 package com.app.presentation.activity.screen
 
 import androidx.activity.ComponentActivity
+import androidx.compose.runtime.Composable
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavHostController
 
 interface NavControllerHost {
     val activity: ComponentActivity
     val navController: NavHostController
+
+    @Composable
+    fun Setup()
 
     fun navigate(route: String) {
         navController.navigate(route)

@@ -10,14 +10,14 @@ import com.app.albums.screen.albums_details.AlbumDetailsScreen
 import com.app.albums.screen.albums.AlbumsScreen
 import com.app.presentation.activity.screen.NavControllerHost
 
-class AppNavHost(
+class AlbumsNavHost(
     override val activity: ComponentActivity,
     override val navController: NavHostController
 ) : NavControllerHost {
     private val host: NavControllerHost = this
 
     @Composable
-    fun Setup() {
+    override fun Setup() {
         NavHost(
             navController = navController,
             startDestination = Screen.Albums.route
