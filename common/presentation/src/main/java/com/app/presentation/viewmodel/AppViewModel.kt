@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.app.presentation.app.CoreApp
 import com.app.presentation.requester.CoroutinesRequester
 import com.app.presentation.requester.Presenter
+import com.app.presentation.requester.RequestOption
 import com.app.presentation.showToast
 import retrofit2.Response
 
@@ -43,10 +44,12 @@ open class AppViewModel : ViewModel() {
     }
 
     fun <T : Any> request(
+        options: RequestOption = RequestOption.defaultOption(),
         execute: suspend () -> Response<T>,
         completion: (T) -> Unit,
     ) {
         coroutinesRequester.request(
+            options = options,
             coroutineScope = viewModelScope,
             execute = { execute() }
         ) {
