@@ -19,7 +19,7 @@ class CoroutinesRequester(
     ) {
         requestHandler.setOptions(options)
 
-        requestHandler.toggleLoading(toggleLoading = true)
+        requestHandler.showLoading()
 
         coroutineScope.launch {
             when (val response = callApi(execute = execute)) {
@@ -32,7 +32,7 @@ class CoroutinesRequester(
                 is NetworkResult.Success -> completion(response.data)
             }
 
-            requestHandler.toggleLoading(toggleLoading = false)
+            requestHandler.hideLoading()
         }
     }
 

@@ -29,7 +29,10 @@ class RequestOptionsHandler(
         presenter.showError(msg)
     }
 
-    fun toggleLoading(toggleLoading: Boolean) {
+    fun showLoading() = toggleLoading(true)
+    fun hideLoading() = toggleLoading(false)
+
+    private fun toggleLoading(toggleLoading: Boolean) {
         if (!options.showLoading)
             return
 
