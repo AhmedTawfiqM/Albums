@@ -28,10 +28,12 @@ When you press on any album it navigates to the second screen which is an album 
 - Android JetPack 
 - Retrofit 2 
 - Hilt dagger 
-- Coroutines 
+- Coroutines
+- jetpack Compose 
+- Navigation Compose 
 
 <br/>
-<img src="https://github.com/AhmedTawfiqM/starter-android-library/blob/master/clean.png" alt="clean-architecture"/>
+<img src="https://github.com/AhmedTawfiqM/Albums/blob/master/clean_arch.png" alt="clean-architecture"/>
 
 # why Modular Architecture ?
 
