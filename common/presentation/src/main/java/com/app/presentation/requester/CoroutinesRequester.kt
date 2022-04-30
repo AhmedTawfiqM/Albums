@@ -6,71 +6,33 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
 
-
 class CoroutinesRequester(
-    private val presenter: Presenter
+    presenter: Presenter
 ) {
+    private var requestHandler = RequestOptionsHandler(presenter)
 
-    //TODO: Create Eror Handling Class , Test inline Error handling
     fun <T : Any> request(
         options: RequestOption = RequestOption.defaultOption(),
         coroutineScope: CoroutineScope,
         execute: suspend () -> Response<T>,
         completion: (T) -> Unit,
     ) {
-        toggleLoading(options, toggleLoading = true)
+        requestHandler.setOptions(options)
+
+        requestHandler.toggleLoading(toggleLoading = true)
 
         coroutineScope.launch {
             when (val response = callApi(execute = execute)) {
                 is NetworkResult.Error -> {
-                    showExceptionError(options, response.message)
+                    requestHandler.showExceptionError(response.message)
                 }
                 is NetworkResult.Exception -> {
-                    showExceptionError(options, response.e)
+                    requestHandler.showExceptionError(response.e)
                 }
                 is NetworkResult.Success -> completion(response.data)
             }
 
-            toggleLoading(options, toggleLoading = false)
-        }
-    }
-
-    private fun showExceptionError(
-        options: RequestOption,
-        ex: Throwable
-    ) {
-        if (options.inlineErrorHandling != null) {
-            options.inlineErrorHandling!!(ex)
-            return
-        }
-
-        presenter.showError(ex)
-    }
-
-    private fun showExceptionError(
-        options: RequestOption,
-        msg: String?
-    ) {
-        if (msg == null) return
-
-        if (options.inlineErrorHandling != null) {
-            options.inlineErrorHandling!!(Throwable(msg))
-            return
-        }
-
-        presenter.showError(msg)
-    }
-
-    private fun toggleLoading(
-        options: RequestOption,
-        toggleLoading: Boolean
-    ) {
-        if (!options.showLoading)
-            return
-
-        when (toggleLoading) {
-            true -> presenter.showLoading()
-            false -> presenter.hideLoading()
+            requestHandler.toggleLoading(toggleLoading = false)
         }
     }
 
