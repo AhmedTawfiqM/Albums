@@ -2,15 +2,25 @@ import deps.Libs
 
 apply from: "$rootDir/$GradleName.common"
 
+android {
+    buildTypes {
+        release {
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.production}\""
+        }
+        debug {
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.develop}\""
+        }
+        staging {
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.staging}\""
+        }
+        develop {
+            buildConfigField 'String', 'API_BASE_URL', "\"${Config.baseUrl.develop}\""
+        }
+    }
+}
+
 dependencies {
     api project(AppModule.core)
 
-    api Libs.networkLibs.retrofitRuntime
-    api Libs.networkLibs.retrofitConverter
-    implementation Libs.networkLibs.retrofitAdapter
 
-    implementation Libs.networkLibs.okHttp
-    implementation Libs.networkLibs.loggingInterceptor
-
-    implementation Libs.gsonLibs.gsonGoogle
 }

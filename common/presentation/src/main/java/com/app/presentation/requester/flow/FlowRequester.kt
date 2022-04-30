@@ -3,7 +3,6 @@ package com.app.presentation.requester.flow
 import com.app.presentation.requester.Presenter
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.*
-import retrofit2.Response
 
 class FlowRequester<T>(private val presenter: Presenter) {
 

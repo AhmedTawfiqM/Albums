@@ -1,6 +1,41 @@
+import deps.Libs
+
 apply from: "$rootDir/$GradleName.common"
+
+android {
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            debuggable false
+        }
+        debug {
+            debuggable true
+        }
+        staging {
+            debuggable true
+        }
+
+        develop {
+        }
+    }
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Libs.compose.version
+    }
+}
 
 dependencies {
     api project(AppModule.core)
     api project(AppModule.data)
+
+    api Libs.compose.coil
+    api Libs.compose.activity
+    api Libs.compose.ui
+    api Libs.compose.material
+    api Libs.compose.navigation
+    api Libs.compose.uiToolingPreview
 }

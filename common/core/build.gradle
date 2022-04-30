@@ -3,11 +3,41 @@ import deps.TestLibs
 
 apply from: "$rootDir/$GradleName.common"
 
+android {
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            debuggable false
+        }
+
+        debug {
+            debuggable true
+        }
+
+        staging {
+            debuggable true
+        }
+
+        develop {
+        }
+    }
+}
+
 dependencies {
     api Libs.androidLibs.core
     api Libs.androidLibs.appCompat
     api Libs.materialDesignLibs.material
     api Libs.androidLibs.constraintLayout
+
+    api Libs.networkLibs.retrofitRuntime
+    api Libs.networkLibs.retrofitConverter
+    api Libs.networkLibs.retrofitAdapter
+
+    api Libs.networkLibs.okHttp
+    api Libs.networkLibs.loggingInterceptor
+
+    api Libs.gsonLibs.gsonGoogle
 
     //Test Libs
     api TestLibs.junit

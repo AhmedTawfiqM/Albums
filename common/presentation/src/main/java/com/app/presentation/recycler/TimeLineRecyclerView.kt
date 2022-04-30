@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.app.core.model.ItemSource
+import com.app.core.data_source.ItemSource
 import com.google.android.material.appbar.AppBarLayout
 
 class TimeLineRecyclerView : RecyclerView {
