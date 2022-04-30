@@ -1,6 +1,5 @@
 package com.app.albums.screen.albums
 
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -19,13 +18,13 @@ import com.app.albums.screen.albums.view.AlbumsListView
 import com.app.core.domain.albums.model.Album
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.NavControllerHost
+import com.app.presentation.activity.screen.createVM
 
 class AlbumsScreen(
     override val host: NavControllerHost
 ) : AppScreen<AlbumsVM>() {
 
-    //TODO: try to move 'Creation of VM' to AppScreen
-    override val vm: AlbumsVM by activity().viewModels()
+    override val vm: AlbumsVM = createVM()
 
     @Composable
     override fun Content() {
