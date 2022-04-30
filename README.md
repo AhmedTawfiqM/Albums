@@ -12,7 +12,7 @@
 # Table of contents
 
 - [Description](#Description)
-- [Technologies](#Technologies)
+- [Software Stack](#Stack)
 - [Why](#why)
 
 
@@ -22,7 +22,7 @@ When you press on any album it navigates to the second screen which is an album 
 
 ### Api End Point https://jsonplaceholder.typicode.com
 
-## Technologies
+## Software Stack
 - Kotlin <br/>
 - MVVM  
 - Android JetPack 
