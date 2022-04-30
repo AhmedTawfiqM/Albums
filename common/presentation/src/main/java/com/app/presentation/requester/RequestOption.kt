@@ -2,7 +2,7 @@ package com.app.presentation.requester
 
 data class RequestOption(
     var showLoading: Boolean = true,
-    var inlineErrorHandling: ((Throwable) -> Boolean)? = null
+    var inlineErrorHandling: ((Throwable) -> Unit)? = null
 ) {
     companion object {
         fun defaultOption(): RequestOption {
