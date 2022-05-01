@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.app.albums.screen.albums_details.view.PhotosGridView
 import com.app.presentation.activity.screen.AppScreen
 import com.app.presentation.activity.screen.NavControllerHost
-import com.app.presentation.activity.screen.createVM
+import com.app.presentation.activity.screen.builder.createVM
 import com.app.presentation.color.AppColor
 import com.app.presentation.compose.FormTextField
 import com.app.presentation.showDebugToast

@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import com.app.albums.screen.albums_details.AlbumDetailsScreen
 import com.app.albums.screen.albums.AlbumsScreen
 import com.app.presentation.activity.screen.NavControllerHost
+import com.app.presentation.activity.screen.builder.screenBuilder
 
 class AlbumsNavHost(
     override val activity: ComponentActivity,
@@ -28,19 +29,6 @@ class AlbumsNavHost(
             screenBuilder(Screen.AlbumDetails) {
                 AlbumDetailsScreen(host).ScreenContent()
             }
-        }
-    }
-
-    private fun NavGraphBuilder.screenBuilder(
-        screen: Screen,
-        arguments: List<NamedNavArgument> = emptyList(),
-        content: @Composable (NavBackStackEntry) -> Unit
-    ) {
-        this.composable(
-            route = screen.route,
-            arguments = arguments
-        ) {
-            content(it)
         }
     }
 }

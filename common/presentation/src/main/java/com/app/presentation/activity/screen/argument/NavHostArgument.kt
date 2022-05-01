@@ -1,4 +1,4 @@
-package com.app.albums.navhost
+package com.app.presentation.activity.screen.argument
 
 import com.google.gson.Gson
 

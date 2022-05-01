@@ -2,11 +2,11 @@ package com.app.albums.screen.albums_details
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import com.app.albums.navhost.NavHostArgument
 import com.app.core.domain.albums.model.Album
 import com.app.core.domain.photos.model.Photo
 import com.app.core.domain.photos.model.PhotoDtoMapper
 import com.app.core.domain.photos.use_case.GetPhotosUseCase
+import com.app.presentation.activity.screen.argument.NavHostArgument
 import com.app.presentation.viewmodel.AppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
