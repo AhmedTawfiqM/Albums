@@ -29,24 +29,23 @@ open class BaseDataStore(context: Context, name: String) {
     suspend inline fun <reified T : Any> get(key: StoreKey): T? {
         val preferencesKey = preferencesKey<T>(key.key)
         val data = dataStore.data.catch { ex ->
-            onReadingException(flow = this, ex = ex)
+            onReadingDataException(flow = this, ex = ex)
         }.first()
         return data[preferencesKey]
     }
 
     suspend inline fun <reified T : Any> getFlow(key: StoreKey): Flow<T?> {
         return dataStore.data
-            .catch { exception ->
-                onReadingException(flow = this, ex = exception)
-            }
-            .map { preference ->
+            .catch { ex ->
+                onReadingDataException(flow = this, ex = ex)
+            }.map { preference ->
                 val preferencesKey = preferencesKey<T>(key.key)
                 val value = preference[preferencesKey]
                 value
             }
     }
 
-    suspend fun onReadingException(
+    suspend fun onReadingDataException(
         flow: FlowCollector<Preferences>,
         ex: Throwable,
     ) {
