@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.*
 
 /**
  * Created by Ahmed Tawfik at 14/5/2022
+ * /
+ * this Class contains complete reusable Apis of Data Store.
+ * App Client will inherit and do its related Stuff :)
  */
 open class BaseDataStore(context: Context, name: String) {
     val dataStore by lazy { context.createDataStore(name) }

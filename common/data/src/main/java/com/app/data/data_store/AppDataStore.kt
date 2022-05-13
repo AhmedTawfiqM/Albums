@@ -4,10 +4,12 @@ import android.content.Context
 import kotlinx.coroutines.flow.Flow
 
 /**
- * example
+ * Created by Ahmed Tawfik at 14/5/2022
+ * /
+ * example of using 'BaseDataStore'
  */
 class AppDataStore(
-    context: Context,
+    context: Context, //TODO: set global app context as default
     name: String = "default_preferences"
 ) : BaseDataStore(context, name) {
 
