@@ -22,5 +22,9 @@ android {
 dependencies {
     api project(AppModule.core)
 
+    //TODO: move to BuildSrc
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
+    // Proto DataStore
+    implementation  "androidx.datastore:datastore-core:1.0.0"
 
 }

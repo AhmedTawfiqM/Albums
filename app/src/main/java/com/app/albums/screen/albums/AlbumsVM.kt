@@ -40,7 +40,7 @@ class AlbumsVM @Inject constructor(
             getUsersUseCase.invoke()
         }) {
             if (it.isNullOrEmpty()) {
-                showError.value = "Empty or Null Users List" //TODO: localize
+                handleError("Empty or Null Users List") //TODO: localize
                 return@request
             }
             users.clear()
@@ -57,7 +57,7 @@ class AlbumsVM @Inject constructor(
             getAlbumsUseCase.invoke(userId)
         }) {
             if (it.isNullOrEmpty()) {
-                showError.value = "Empty or Null Albums List" //TODO: localize
+                handleError("Empty or Null Albums List")//TODO: localize
                 return@request
             }
             albums.clear()

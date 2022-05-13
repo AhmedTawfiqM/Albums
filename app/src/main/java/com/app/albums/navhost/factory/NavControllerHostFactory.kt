@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.albums.navhost.AlbumsNavHost
+import com.app.presentation.activity.screen.NavControllerHost
 
 /**
  * this Factory is responsible to create NavHost
@@ -18,7 +19,7 @@ class NavControllerHostFactory(
     fun create(
         type: NavHostType,
         navController: NavHostController = rememberNavController()
-    ): AlbumsNavHost {
+    ): NavControllerHost {
         return when (type) {
             NavHostType.Albums -> AlbumsNavHost(activity, navController)
         }

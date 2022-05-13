@@ -1,6 +1,7 @@
 package com.app.presentation.activity.screen
 
 import android.content.Context
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import com.app.presentation.compose.ComposeCircularProgress
 import com.app.presentation.viewmodel.AppViewModel
@@ -13,7 +14,7 @@ abstract class AppScreen<VM : AppViewModel> {
     protected abstract fun Content()
 
     @Composable
-    fun ScreenContent(){
+    fun ScreenContent() {
         Content()
         ShowLoaderProgress()
     }
@@ -21,13 +22,8 @@ abstract class AppScreen<VM : AppViewModel> {
     fun activity() = host.activity
     fun context(): Context = host.activity.baseContext
 
-    fun navigate(route: ScreenRoute) {
-        host.navigate(route)
-    }
-
-    fun navigate(route: String) {
-        host.navigate(route)
-    }
+    fun navigate(route: ScreenRoute) = host.navigate(route)
+    fun navigate(route: String) = host.navigate(route)
 
     @Composable
     private fun ShowLoaderProgress() {

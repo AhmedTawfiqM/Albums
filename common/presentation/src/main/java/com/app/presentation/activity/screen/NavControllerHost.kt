@@ -12,15 +12,10 @@ interface NavControllerHost {
     @Composable
     fun Setup()
 
-    fun navigate(route: String) {
-        navController.navigate(route)
-    }
-
+    fun navigate(route: String) = navController.navigate(route)
     fun navigate(route: ScreenRoute) = navigate(route.route)
 
-    fun popBackStack() {
-        navController.popBackStack()
-    }
+    fun popBackStack() = navController.popBackStack()
 
     fun putArguments(block: (SavedStateHandle?) -> Unit) {
         navController.currentBackStackEntry?.savedStateHandle.apply {
