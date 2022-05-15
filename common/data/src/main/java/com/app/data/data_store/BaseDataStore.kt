@@ -34,7 +34,7 @@ open class BaseDataStore(context: Context, name: String) {
         return data[preferencesKey]
     }
 
-    suspend inline fun <reified T : Any> getFlow(key: StoreKey): Flow<T?> {
+    suspend inline fun <reified T : Any> getAsFlow(key: StoreKey): Flow<T?> {
         return dataStore.data
             .catch { ex ->
                 onReadingDataException(flow = this, ex = ex)

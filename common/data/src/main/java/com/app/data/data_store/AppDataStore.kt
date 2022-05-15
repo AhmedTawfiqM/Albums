@@ -22,7 +22,7 @@ class AppDataStore(
     }
 
     suspend fun getFlowName(): Flow<String?> {
-        return getFlow(DataStoreType.Name)
+        return getAsFlow(DataStoreType.Name)
     }
 }
 
